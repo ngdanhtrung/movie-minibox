@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/header.css">
-  <title>Document</title>
+  <title>Mini Box | Thông tin - Lịch Chiếu - Hệ Thống rạp chiếu phim đỉnh cao</title>
 </head>
 
 <body>
@@ -18,8 +19,8 @@
     </div>
     <div class="header-page">
       <div class="header-page-container">
-        <a class="logo" href=""><img class="logo" src="./img/comm7.png" alt="logo"></a>
-        <div class="dropdown">
+        <a class="logo" href="/"><img class="logo" src="./img/comm7.png" alt="logo"></a>
+        <div class="dropdown-box">
           <button class="dropbtn">Phim
             <div class="dropdown-content">
               <a href="#">phim đang chiếu</a>
@@ -42,6 +43,4 @@
       </div>
     </div>
   </div>
-</body>
-
-</html>
+<div style="background: #FDFCF0">
