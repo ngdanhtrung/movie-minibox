@@ -15,11 +15,12 @@
   <div id="wrapper">
     <div id="header">
       <div class="header-text">
-        <a href="">Vé của tôi</a>
         <?php if (session()->get('isLoggedIn')) : ?>
+          <a href="">Vé của tôi</a>
           <a>Xin chào, <?= session()->get('username') ?></a>
           <a href="/account/logout">Đăng xuất</a>
         <?php else : ?>
+          <a href="/account/login">Vé của tôi</a>
           <a href="/account/login">Đăng nhập</a>
           <a href="/account/register">Đăng ký</a>
         <?php endif; ?>
@@ -30,8 +31,8 @@
           <div class="dropdown-box">
             <button class="dropbtn">Phim
               <div class="dropdown-content">
-                <a href="#">phim đang chiếu</a>
-                <a href="#">phim sắp chiếu</a>
+                <a href="/now-showing">phim đang chiếu</a>
+                <a href="/coming-soon">phim sắp chiếu</a>
               </div>
             </button>
             <button class="dropbtn">Rạp
@@ -50,4 +51,4 @@
         </div>
       </div>
     </div>
-    <div style="background: #FDFCF0">
+    <div style="background: #FDFCF0; margin-bottom: 24px;">

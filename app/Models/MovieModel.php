@@ -17,7 +17,21 @@ class MovieModel extends Model
         }
 
         return $this->asArray()
-            ->where(['movie' => $movie])
+            ->where(['movieName' => $movie])
             ->first();
+    }
+    public function getNowShowing()
+    {
+        return $this->asArray()
+            ->where(['premiereDate <=' => date("Y-m-d")])
+            ->orderBy('premiereDate', 'asc')
+            ->findAll(12, 0);
+    }
+    public function getComingSoon()
+    {
+        return $this->asArray()
+            ->where(['premiereDate >=' => date("Y-m-d")])
+            ->orderBy('premiereDate', 'asc')
+            ->findAll();
     }
 }

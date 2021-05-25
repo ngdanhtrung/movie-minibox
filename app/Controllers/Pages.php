@@ -10,9 +10,10 @@ class Pages extends BaseController
     {
         $movieModel = new MovieModel();
         $data = [];
+        $data['movieNowShowing'] = $movieModel->getNowShowing();
+        $data['movieComingSoon'] = $movieModel->getComingSoon();
         echo view('templates/header', $data);
-        $data['movie'] = $movieModel->getPosts();
-        echo view('pages/home', $data);
+        echo view('pages/home');
         echo view('templates/footer');
     }
 
@@ -22,8 +23,10 @@ class Pages extends BaseController
         if (!is_file(APPPATH . '/Views/pages/' . $page . '.php')) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
-
-        echo view('templates/header');
+        $movieModel = new MovieModel();
+        $data['movieNowShowing'] = $movieModel->getNowShowing();
+        $data['movieComingSoon'] = $movieModel->getComingSoon();
+        echo view('templates/header', $data);
         echo view('pages/' . $page);
         echo view('templates/footer');
     }
