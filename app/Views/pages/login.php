@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col-sm-7 px-5">
+    <div class="col-sm-7 p-5" style="color: #636363">
       <h3>Đăng nhập</h3>
       <hr>
       <?php if (session()->get('success')) : ?>
@@ -27,8 +27,8 @@
         <div class="row">
           <div class="col-12 col-sm-4">
           </div>
-          <div class="col-12 col-sm-8 text-end">
-            <a href="/account/register">Don't have an account yet?</a>
+          <div class="col-12 col-sm-8 mt-1 text-end">
+            <a href="/account/register" style="text-decoration: none; font-size: 0.9rem">Don't have an account yet?</a>
           </div>
         </div>
         <button type="submit" class="btn btn-danger col-12 mt-2">Login</button>
