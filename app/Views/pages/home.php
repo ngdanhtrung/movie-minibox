@@ -7,7 +7,8 @@
         foreach ($movie as $movieItem) {
           echo "<h3>" . $movieItem["movieName"] . "</h3>";
         }
-      } ?>
+      }
+      ?>
 
     </div>
   </section>

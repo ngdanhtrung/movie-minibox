@@ -15,7 +15,7 @@
               <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="<?= set_value('phoneNumber') ?>">
             </div>
             <div class="form-group">
-              <label for="username">User Name</label>
+              <label for="username">Username</label>
               <input type="text" class="form-control" name="username" id="username" value="<?= set_value('username') ?>">
             </div>
             <div class="form-group">
@@ -30,7 +30,7 @@
               <label for="dob">Date of birth</label>
               <input type="date" class="form-control" name="dob" id="dob" value="">
             </div>
-            <?php if(isset($validation)): ?>
+            <?php if (isset($validation)) : ?>
               <div class="col-12">
                 <div class="alert alert-danger" role="alert">
                   <?= $validation->listErrors() ?>
