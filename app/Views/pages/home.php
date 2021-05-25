@@ -1,3 +1,3 @@
 <div class="container">
-  <h1>This is an empty Home Page</h1>
+  <h1>Hello, <?= session()->get('username') ?></h1>
 </div>

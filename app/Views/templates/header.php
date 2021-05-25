@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/header.css">
-  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/css/header.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>/css/footer.css">
   <title>Mini Box | Thông tin - Lịch Chiếu - Hệ Thống rạp chiếu phim đỉnh cao</title>
 </head>
 
@@ -16,12 +16,17 @@
     <div id="header">
       <div class="header-text">
         <a href="">Vé của tôi</a>
-        <a href="">Đăng nhập</a>
-        <a href="">Đăng ký</a>
+        <?php if (session()->get('isLoggedIn')) : ?>
+              <a>Xin chào, <?= session()->get('username') ?></a>
+              <a href="/account/logout">Đăng xuất</a>
+        <?php else: ?>
+              <a href="/account/login">Đăng nhập</a>
+              <a href="/account/register">Đăng ký</a>
+        <?php endif; ?>
       </div>
       <div class="header-page">
         <div class="header-page-container">
-          <a class="logo" href="/"><img class="logo" src="./img/comm7.png" alt="logo"></a>
+          <a class="logo" href="/"><img class="logo" src="<?php echo base_url() ?>./img/comm7.png" alt="logo"></a>
           <div class="dropdown-box">
             <button class="dropbtn">Phim
               <div class="dropdown-content">

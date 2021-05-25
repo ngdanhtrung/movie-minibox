@@ -6,7 +6,8 @@ class Pages extends BaseController
 {
 	public function index()
 	{
-        echo view('templates/header');
+        $data = [];
+        echo view('templates/header', $data);
         echo view('pages/home');
         echo view('templates/footer');
 	}
