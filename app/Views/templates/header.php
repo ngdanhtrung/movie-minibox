@@ -17,11 +17,11 @@
       <div class="header-text">
         <a href="">Vé của tôi</a>
         <?php if (session()->get('isLoggedIn')) : ?>
-              <a>Xin chào, <?= session()->get('username') ?></a>
-              <a href="/account/logout">Đăng xuất</a>
-        <?php else: ?>
-              <a href="/account/login">Đăng nhập</a>
-              <a href="/account/register">Đăng ký</a>
+          <a>Xin chào, <?= session()->get('username') ?></a>
+          <a href="/account/logout">Đăng xuất</a>
+        <?php else : ?>
+          <a href="/account/login">Đăng nhập</a>
+          <a href="/account/register">Đăng ký</a>
         <?php endif; ?>
       </div>
       <div class="header-page">

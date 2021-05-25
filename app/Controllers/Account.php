@@ -1,14 +1,17 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
 
 use App\Models\AccountModel;
 
 class Account extends BaseController
 {
-	public function index()
-	{
-		echo "<h1>Account Pages</h1>";
-	}
-    function login(){
+    public function index()
+    {
+        echo "<h1>Account Pages</h1>";
+    }
+    function login()
+    {
         $data = [];
         helper(['form']);
 
@@ -20,20 +23,20 @@ class Account extends BaseController
 
             $errors = [
                 'password' => [
-                    'validateUser' => 'Username or Password don\'t match'
+                    'validateUser' => 'Username or Password doesn\'t match'
                 ]
             ];
-        
+
 
             if (!$this->validate($rules, $errors)) {
                 $data['validation'] = $this->validator;
             } else {
                 $model = new AccountModel();
 
-                $user = $model->where('username',$this->request->getVar('username'))->first();
+                $user = $model->where('username', $this->request->getVar('username'))->first();
 
                 $this->setUserSession($user);
-                
+
                 return redirect()->to('/');
             }
         }
@@ -43,7 +46,8 @@ class Account extends BaseController
         echo view('templates/footer');
     }
 
-    private function setUserSession($user){
+    private function setUserSession($user)
+    {
         $data = [
             'id' => $user['id'],
             'username' => $user['username'],
@@ -55,7 +59,8 @@ class Account extends BaseController
         return true;
     }
 
-    function register(){
+    function register()
+    {
         $data = [];
         helper(['form']);
         if ($this->request->getMethod() == 'post') {
@@ -66,7 +71,7 @@ class Account extends BaseController
                 'password' => 'required|min_length[8]|max_length[50]',
                 'password_confirm' => 'matches[password]',
             ];
-        
+
 
             if (!$this->validate($rules)) {
                 $data['validation'] = $this->validator;
@@ -91,8 +96,15 @@ class Account extends BaseController
         echo view('pages/register');
         echo view('templates/footer');
     }
-    function logout(){
-        $this->session->sess_destroy();
-        redirect('default_controller');
+    function logout()
+    {
+        $sessionData = [
+            'id',
+            'username',
+            'email',
+            'isLoggedIn',
+        ];
+        session()->remove($sessionData);
+        return redirect()->to(base_url());
     }
 }
