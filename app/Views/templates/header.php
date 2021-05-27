@@ -17,7 +17,7 @@
       <div class="header-text">
         <?php if (session()->get('isLoggedIn')) : ?>
           <a href="">Vé của tôi</a>
-          <a>Xin chào, <?= session()->get('username') ?></a>
+          <a href="/account/user">Xin chào, <?= session()->get('username') ?></a>
           <a href="/account/logout">Đăng xuất</a>
         <?php else : ?>
           <a href="/account/login">Vé của tôi</a>

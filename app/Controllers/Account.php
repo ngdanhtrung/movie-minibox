@@ -119,7 +119,7 @@ class Account extends BaseController
                 ];
                 $model->save($newData);
                 $session = session();
-                $session->setFlashdata('success', 'Successful Registration');
+                $session->setFlashdata('success', 'Đăng ký thành công!');
                 return redirect()->to('/account/login');
             }
         }
@@ -142,9 +142,78 @@ class Account extends BaseController
     function user()
     {
         $accountModel = new AccountModel();
-        $data['user'] = $accountModel->getUser(session()->get('id'));
+        $data['user'] = $accountModel->where('id', session()->get('id'))->first();
         echo view('templates/header', $data);
         echo view('pages/user');
+        echo view('templates/footer');
+    }
+    function update()
+    {
+        $accountModel = new AccountModel();
+        helper(['form']);
+
+        if ($this->request->getMethod() == 'post') {
+            $rules = [
+                'phoneNumber' => 'required|exact_length[10]|numeric',
+                'username' => 'required|min_length[3]|max_length[20]',
+            ];
+
+            if ($this->request->getPost('password') != ''){
+                $rules['password'] = 'required|min_length[8]|max_length[50]';
+                $rules['password_confirm'] = 'matches[password]';
+            }
+
+            $errors = [
+                'email' => [
+                    'required' => 'Vui lòng nhập Email.',
+                    'min_length' => 'Email phải có ít nhất {param} ký tự.',
+                    'max_length' => 'Email chỉ tối đa {param} ký tự.',
+                    'valid_email' => 'Email phải hợp lệ.',
+                    'is_unique' => 'Email đã có người sử dụng.',
+                ],
+                'phoneNumber'=>[
+                    'required' => 'Vui lòng nhập Số điện thoại.',
+                    'exact_length' => 'Số điện thoại phải có {param} số.',
+                    'numeric' => 'Ký tự phải là số.'
+                ],
+                'username' =>[
+                    'required' => 'Vui lòng nhập Tên đăng nhập.',
+                    'min_length' => 'Tên đăng nhập phải có ít nhất {param} ký tự.',
+                    'max_length' => 'Tên đăng nhập chỉ tối đa {param} ký tự.',
+                ],
+                'password' => [
+                    'required' => 'Vui lòng nhập Mật khẩu.',
+                    'min_length' => 'Mật khẩu phải có ít nhất {param} ký tự.',
+                    'max_length' => 'Mật khẩu chỉ tối đa {param} ký tự.',
+                ],
+                'password_confirm' => [
+                    'matches' => 'Mật khẩu xác nhận không trùng khớp'
+                ]
+            ];
+
+
+            if (!$this->validate($rules, $errors)) {
+                $data['validation'] = $this->validator;
+            } else {
+                $model = new AccountModel();
+                $newData = [
+                    'id' => session()->get('id'),
+                    'username' => $this->request->getVar('username'),
+                    'dob' => $this->request->getVar('dob'),
+                    'phoneNumber' => $this->request->getVar('phoneNumber'),
+                ];
+                if ($this->request->getPost('password') != ''){
+                    $newData['passwordHash'] = $this->request->getVar('password');
+                }
+                $model->save($newData);
+                $session = session();
+                $session->setFlashdata('success', 'Cập nhật thông tin thành công');
+                return redirect()->to('/account/user');
+            }
+        }
+        $data['user'] = $accountModel->where('id', session()->get('id'))->first();
+        echo view('templates/header', $data);
+        echo view('pages/update');
         echo view('templates/footer');
     }
 }
