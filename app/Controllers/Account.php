@@ -22,9 +22,12 @@ class Account extends BaseController
             ];
 
             $errors = [
+                'username' => [
+                    'required' => 'Vui lòng nhập Tên đăng nhập.'
+                ],
                 'password' => [
                     'validateUser' => 'Sai tên đăng nhập hoặc mật khẩu.',
-                    'required' => 'Vui lòng nhập {field}.'
+                    'required' => 'Vui lòng nhập Mật khẩu.'
                 ]
             ];
 
