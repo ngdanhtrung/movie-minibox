@@ -17,13 +17,14 @@ class Account extends BaseController
 
         if ($this->request->getMethod() == 'post') {
             $rules = [
-                'username' => 'required|min_length[3]|max_length[20]',
-                'password' => 'required|min_length[8]|max_length[50]|validateUser[username, password]',
+                'username' => 'required',
+                'password' => 'required|validateUser[username, password]',
             ];
 
             $errors = [
                 'password' => [
-                    'validateUser' => 'Username or Password doesn\'t match'
+                    'validateUser' => 'Sai tên đăng nhập hoặc mật khẩu.',
+                    'required' => 'Vui lòng nhập {field}.'
                 ]
             ];
 
@@ -72,8 +73,36 @@ class Account extends BaseController
                 'password_confirm' => 'matches[password]',
             ];
 
+            $errors = [
+                'email' => [
+                    'required' => 'Vui lòng nhập Email.',
+                    'min_length' => 'Email phải có ít nhất {param} ký tự.',
+                    'max_length' => 'Email chỉ tối đa {param} ký tự.',
+                    'valid_email' => 'Email phải hợp lệ.',
+                    'is_unique' => 'Email đã có người sử dụng.',
+                ],
+                'phoneNumber'=>[
+                    'required' => 'Vui lòng nhập Số điện thoại.',
+                    'exact_length' => 'Số điện thoại phải có {param} số.',
+                    'numeric' => 'Ký tự phải là số.'
+                ],
+                'username' =>[
+                    'required' => 'Vui lòng nhập Tên đăng nhập.',
+                    'min_length' => 'Tên đăng nhập phải có ít nhất {param} ký tự.',
+                    'max_length' => 'Tên đăng nhập chỉ tối đa {param} ký tự.',
+                ],
+                'password' => [
+                    'required' => 'Vui lòng nhập Mật khẩu.',
+                    'min_length' => 'Mật khẩu phải có ít nhất {param} ký tự.',
+                    'max_length' => 'Mật khẩu chỉ tối đa {param} ký tự.',
+                ],
+                'password_confirm' => [
+                    'matches' => 'Mật khẩu xác nhận không trùng khớp'
+                ]
+            ];
 
-            if (!$this->validate($rules)) {
+
+            if (!$this->validate($rules, $errors)) {
                 $data['validation'] = $this->validator;
             } else {
                 $model = new AccountModel();

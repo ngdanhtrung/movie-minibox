@@ -42,7 +42,9 @@
             </button>
             <button class="dropbtn">Thành viên
               <div class="dropdown-content">
-                <a href="#">tài khoản</a>
+                <?php if (!session()->get('isLoggedIn')) : ?>
+                  <a href="#">tài khoản</a>
+                <?php endif; ?>
                 <a href="#">quyền lợi</a>
               </div>
             </button>

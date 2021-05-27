@@ -10,11 +10,11 @@
       <?php endif; ?>
       <form class="" action="/account/login" method="post">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Tên đăng nhập</label>
           <input type="text" class="form-control" name="username" id="username" value="<?= set_value('username') ?>">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Mật khẩu</label>
           <input type="password" class="form-control" name="password" id="password" value="">
         </div>
         <?php if (isset($validation)) : ?>
@@ -28,10 +28,10 @@
           <div class="col-12 col-sm-4">
           </div>
           <div class="col-12 col-sm-8 mt-1 text-end">
-            <a href="/account/register" style="text-decoration: none; font-size: 0.9rem">Don't have an account yet?</a>
+            <a href="/account/register" style="text-decoration: none; font-size: 0.9rem">Chưa có tài khoản? Đăng ký ngay!</a>
           </div>
         </div>
-        <button type="submit" class="btn btn-danger col-12 mt-2">Login</button>
+        <button type="submit" class="btn btn-danger col-12 mt-2">Đăng nhập</button>
       </form>
     </div>
   </div>
