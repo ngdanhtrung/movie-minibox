@@ -38,3 +38,25 @@
   text-transform: uppercase;
   text-align: center !important;
 }
+
+/*MOVIE CSS*/
+
+.category-title {
+  border-bottom: 3px solid #241d1e;
+  width: inherit;
+  height: fit-content;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.category-title .sub-category {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+}
+
+.sub-category a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+}

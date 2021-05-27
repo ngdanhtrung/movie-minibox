@@ -1,15 +1,23 @@
 <div class="container">
     <section class="test">
         <div class="container" style="width: 1100px">
+            <div class="category-title">
+                <h1 class="p-1 d-inline">Phim Đang Chiếu</h1>
+                <div class="sub-category">
+                    <a href="/coming-soon">
+                        <h4>Phim Sắp Chiếu</h4>
+                    </a>
+                </div>
+            </div>
             <div class="row row-cols-4 m-auto">
                 <?php if ($movieNowShowing) {
                     foreach ($movieNowShowing as $movieItem) {
                         echo '
-                        <div class="col">
-                            <div class="card m-3 mx-4 p-2 bg-transparent" style="width: 14rem; font-size: 0.9rem">
+                        <div class="col my-3">
+                            <div class="card h-100 m-3 mx-4 p-2 bg-transparent" style="width: 14rem; font-size: 0.9rem">
                                 <a href="/default/' . $movieItem["id"] . '" style="text-decoration: none; color: inherit;";>
                                 <img class="card-img-top border border-dark border-5" style="height: 28vh; object-fit: cover;" src="' . $movieItem["image"] . '" alt="Card image cap">
-                                <div class="card-body">
+                                <div class="card-body" style="height: fit-content; overflow: hidden;">
                                     <p class="card-text fw-bold">' . $movieItem["movieName"] . '</p>
                                     </a>
                                     <div style="font-size: 0.8rem">
@@ -27,7 +35,7 @@
                     }
                 }
                 ?>
-            </div>         
+            </div>
         </div>
     </section>
 </div>
