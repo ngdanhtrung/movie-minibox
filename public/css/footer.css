@@ -37,8 +37,54 @@
   color: #fff;
   text-transform: uppercase;
   text-align: center !important;
+  font-size: 1.5rem;
+  padding: 5px;
 }
 
+.change-btn {
+  display: inline-block;
+  background: #9d9b9b;
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  min-width: 85px;
+  padding: 3px 5px;
+}
+
+.change-btn:hover {
+  color: #fff;
+}
+
+.block-content li {
+  background: url('https://cdn.discordapp.com/attachments/845814665542893584/847463617377075250/ribon_left-ccc.png')
+    no-repeat scroll left center #ccc;
+  color: #fff;
+  height: 34px;
+  padding-left: 18px;
+  float: left;
+  width: 100%;
+  margin: 2px 0;
+  text-transform: uppercase;
+}
+.block-content li a {
+  color: #666 !important;
+  margin-left: 5px !important;
+  line-height: 34px !important;
+  font-weight: bold;
+  font-size: 12px;
+  text-decoration: none;
+}
+.block-content .active {
+  background: url('https://cdn.discordapp.com/attachments/845814665542893584/847464723037683712/ribon_left.png')
+    no-repeat scroll left center #e71a0f;
+  color: #fff;
+  padding-left: 18px;
+}
+.block-content .active a {
+  color: #fff !important;
+}
 /*MOVIE CSS*/
 
 .category-title {
@@ -59,4 +105,18 @@
   text-transform: uppercase;
   text-decoration: none;
   color: inherit;
+}
+
+/* CONTENT CSS */
+/*CONTENT*/
+
+.home-title {
+  background: url(/img/bg_h3_line.jpg) repeat-x scroll left center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-carousel-container {
+  background: url(/img/bg_c_bricks.png) repeat-x scroll 0 rgba(0, 0, 0, 0);
 }
