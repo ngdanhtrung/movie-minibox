@@ -28,7 +28,7 @@
       <div class="header-page">
         <div class="header-page-container">
           <a class="logo" href="/"><img class="logo" src="<?php echo base_url() ?>./img/comm7.png" alt="logo"></a>
-          <div class="dropdown-box">
+          <div class="dropdown-box d-flex flex-row">
             <button class="dropbtn">Phim
               <div class="dropdown-content">
                 <a href="/now-showing">phim đang chiếu</a>
@@ -42,9 +42,7 @@
             </button>
             <button class="dropbtn">Thành viên
               <div class="dropdown-content">
-                <?php if (!session()->get('isLoggedIn')) : ?>
-                  <a href="#">tài khoản</a>
-                <?php endif; ?>
+                <a href="/account/user">tài khoản</a>
                 <a href="#">quyền lợi</a>
               </div>
             </button>

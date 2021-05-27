@@ -136,4 +136,12 @@ class Account extends BaseController
         session()->remove($sessionData);
         return redirect()->to(base_url());
     }
+    function user()
+    {
+        $accountModel = new AccountModel();
+        $data['user'] = $accountModel->getUser(session()->get('id'));
+        echo view('templates/header', $data);
+        echo view('pages/user');
+        echo view('templates/footer');
+    }
 }
