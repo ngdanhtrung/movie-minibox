@@ -21,7 +21,7 @@
         <h6 style="font-size: 0.9rem">Tên: <?= $user['username'] ?></h6>
         <h6 style="font-size: 0.9rem">Email: <?= $user['email'] ?></h6>
         <h6 style="font-size: 0.9rem">Số điện thoại: <?= '0' . $user["phoneNumber"] ?></h6>
-        <h6 style="font-size: 0.9rem">Ngày sinh: <?= $user["dob"] ?></h6>
+        <h6 style="font-size: 0.9rem">Ngày sinh: <?= date("d/m/Y",strtotime($user["dob"])) ?></h6>
         <a class="change-btn" href="/account/update">Thay đổi</a>
       </div>
     </div>

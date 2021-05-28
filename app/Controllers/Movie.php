@@ -45,4 +45,12 @@ class Movie extends BaseController
             return redirect()->to('/');
         }
     }
+    public function view($id = NULL)
+    {
+        $model = new MovieModel();
+        $data['movie'] = $model->getMovie($id);
+        echo view('templates/header', $data);
+        echo view('pages/movie');
+        echo view('templates/footer');
+    }
 }

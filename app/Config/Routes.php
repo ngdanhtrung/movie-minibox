@@ -33,10 +33,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Pages::index');
+
 $routes->get('/', 'Pages::index');
 $routes->match(['get', 'post'], '/account/(:any)', 'Account::$1');
-$routes->get('movie/create', 'Movie::create');
+$routes->get('/movie/create', 'Movie::create');
+$routes->get('/default/(:any)', 'Movie::view/$1');
 $routes->get('(:any)', 'Pages::showme/$1');
 
 /*

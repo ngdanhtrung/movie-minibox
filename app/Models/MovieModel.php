@@ -34,4 +34,10 @@ class MovieModel extends Model
             ->orderBy('premiereDate', 'desc')
             ->findAll();
     }
+    public function getMovie($id = NULL)
+    {
+        return $this->asArray()
+            ->where(['id' => $id])
+            ->first();
+    }
 }
