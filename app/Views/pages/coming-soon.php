@@ -26,7 +26,7 @@
                                             <p class="card-text m-0">
                                             <span class="fw-bold" >Thời lượng: </span>' . $movieItem["duration"] . '</p>
                                             <p class="card-text m-0">
-                                            <span class="fw-bold" >Khởi chiếu: </span>' . $movieItem["premiereDate"] . '</p>
+                                            <span class="fw-bold" >Khởi chiếu: </span>' . date("j-n-Y", strtotime($movieItem["premiereDate"])) . '</p>
                                     </div>
                                 </div>
                             </div>

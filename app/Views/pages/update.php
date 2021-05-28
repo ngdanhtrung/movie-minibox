@@ -18,7 +18,7 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="email">Địa chỉ email: <span style="color: red; font-size: 0.7rem"> *</span></label>
+              <label for="email">Địa chỉ email: </label>
               <input type="text" class="form-control" readonly id="email" value="<?= $user['email'] ?>">
             </div>
             <div class="form-group">

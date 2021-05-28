@@ -1,8 +1,3 @@
-<?php
-helper('url');
-if (!isset($_SESSION['isLoggedIn'])) {
-  return redirect()->to(base_url());
-} ?>
 <div class="container mt-3">
   <div class="row m-auto">
     <div class="col-sm-3">
@@ -14,7 +9,7 @@ if (!isset($_SESSION['isLoggedIn'])) {
         </ul>
       </div>
     </div>
-    <div class="col-sm-8 py-1">
+    <div class="col-sm-8">
       <div class="dashboard">
         <h3>Thông tin chung</h3>
       </div>

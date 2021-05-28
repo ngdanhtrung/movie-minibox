@@ -13,6 +13,10 @@ html {
   color: #636363;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 /*@media (max-width: 960px) {
   #header {
     display: none;
@@ -27,7 +31,7 @@ html {
 }
 
 #header {
-  height: 135px;
+  height: fit-content;
   background: #fdfcf0;
   margin-bottom: 24px;
 }
@@ -53,8 +57,9 @@ html {
 
 #header .header-page {
   position: relative;
-  height: 120px;
+  height: 135px;
   background: url(../img/bg-top.png) repeat-x scroll left bottom transparent;
+  background-size: 10px 135px;
 }
 
 .header-page-container {

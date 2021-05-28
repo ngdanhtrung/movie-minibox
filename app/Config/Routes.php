@@ -20,7 +20,9 @@ $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
-$routes->set404Override();
+$routes->set404Override(function () {
+	return view('errors/html/404');
+});
 $routes->setAutoRoute(true);
 
 /*
@@ -33,7 +35,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 $routes->get('/', 'Pages::index');
-$routes->match(['get','post'],'/account/(:any)', 'Account::$1');
+$routes->match(['get', 'post'], '/account/(:any)', 'Account::$1');
 $routes->get('movie/create', 'Movie::create');
 $routes->get('(:any)', 'Pages::showme/$1');
 
