@@ -1,8 +1,19 @@
-<div class="container">
+<div class="container-fluid py-0 breadcrumb-container">
+    <div class="container py-1">
+        <nav class="px-5 mx-5" style="--bs-breadcrumb-divider: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-cgv-icon-arrow.png);" aria-label="breadcrumb">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item "><a href="/" class="breadcrumb-home" title="go-to-home"></a></li>
+                <li class="px-2 breadcrumb-item active" aria-current="page"><strong>Phim Sắp chiếu</strong></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container mt-5">
     <section class="test">
         <div class="container" style="width: 1100px">
             <div class="category-title">
-                <h1 class="p-1 d-inline">Phim Sắp Chiếu</h1>
+                <h1 class="p-1 d-inline" style="color: #333">Phim Sắp Chiếu</h1>
                 <div class="sub-category">
                     <a href="/now-showing">
                         <h4>Phim Đang Chiếu</h4>

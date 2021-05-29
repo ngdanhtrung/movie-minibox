@@ -23,14 +23,14 @@ class MovieModel extends Model
     public function getNowShowing()
     {
         return $this->asArray()
-            ->where(['premiereDate <=' => date("Y-m-d")])
+            ->where(['isShowing' => 1, 'premiereDate <=' => date("Y-m-d")])
             ->orderBy('premiereDate', 'desc')
-            ->findAll(12, 0);
+            ->findAll();
     }
     public function getComingSoon()
     {
         return $this->asArray()
-            ->where(['premiereDate >=' => date("Y-m-d")])
+            ->where(['isShowing' => 0])
             ->orderBy('premiereDate', 'desc')
             ->findAll();
     }
