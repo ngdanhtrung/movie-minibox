@@ -44,6 +44,13 @@
               <p> <strong> Khởi chiếu: </strong><?= $movie['premiereDate'] ?></p>
               <p> <strong> Thời lượng: </strong><?= $movie['duration'] ?></p>
               <p> <strong> Ngôn ngữ: </strong><?= $movie['language'] ?></p>
+              <a href="#">
+                <button type="button" class="button booking-btn mt-3">
+                  <span>
+                    <span class="book">Đặt vé</span>
+                  </span>
+                </button>
+              </a>
             </div>
 
           </div>

@@ -48,17 +48,22 @@
 
   <section class="test">
     <div class="container">
-      <h1>This is an empty Home Page</h1>
-      <?php if ($movieNowShowing) {
-        foreach ($movieNowShowing as $movieItem) {
-          echo "<h3>" . $movieItem["movieName"] . "</h3>";
-        }
-      }
-      echo date("Y-m-d H:i:s");
-      echo "<pre>";
-      print_r($movieNowShowing);
-      echo "</pre>";
-      ?>
-    </div>
+      <div class="wrapper">
+        <div class="jcarousel-wrapper">
+
+          <div class="jcarousel" data-jcarousel="true">
+            <ul style="left: 0px; top: 0px;">
+              <?php foreach ($movieNowShowing as $movie) {
+                echo '<li><a href="/default/' . $movie['id'] . '"><img src=' .  $movie['image'] . ' alt="Image"></a></li>';
+              } ?>
+            </ul>
+          </div>
+          <a href="#" class="jcarousel-control-prev inactive" data-jcarouselcontrol="true">‹</a>
+          <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true">›</a>
+        </div>
+        <?php
+        echo date("Y-m-d H:i:s");
+        ?>
+      </div>
   </section>
 </div>

@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="<?php echo base_url() ?>/css/header.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>/css/footer.css">
+  <link rel="stylesheet" href="/css/jcarousel.ajax.css">
   <title>Mini Box | Thông tin - Lịch Chiếu - Hệ Thống rạp chiếu phim đỉnh cao</title>
 </head>
 
