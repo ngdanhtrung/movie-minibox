@@ -34,7 +34,7 @@
   float: left;
   width: 240px;
   height: 335px;
-  margin-right: 5px;
+  margin-right: 6px;
 }
 
 .jcarousel a {
@@ -43,7 +43,8 @@
 }
 
 .jcarousel a img {
-  max-height: 335px;
+  height: 335px;
+  width: 240px;
 }
 
 .jcarousel .loading {
