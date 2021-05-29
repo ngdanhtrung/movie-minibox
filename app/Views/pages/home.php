@@ -58,8 +58,8 @@
               } ?>
             </ul>
           </div>
-          <a href="#" class="jcarousel-control-prev inactive" data-jcarouselcontrol="true">‹</a>
-          <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true">›</a>
+          <a href="#" class="jcarousel-control-prev inactive" data-jcarouselcontrol="true"></a>
+          <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"></a>
         </div>
         <?php
         echo date("Y-m-d H:i:s");

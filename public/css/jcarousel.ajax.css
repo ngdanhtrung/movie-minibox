@@ -53,13 +53,14 @@
 
 /** Carousel Controls **/
 
-.jcarousel-control-prev,
-.jcarousel-control-next {
+.jcarousel-control-prev {
   position: absolute;
-  top: 35px;
-  width: 30px;
-  height: 30px;
-  text-align: center;
+  top: 40%;
+  background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/arow-movie-selection.png)
+    no-repeat scroll -34px 0 transparent;
+  width: 35px;
+  height: 68px;
+  /*text-align: center;
   background: #4e443c;
   color: #fff;
   text-decoration: none;
@@ -70,15 +71,24 @@
   border-radius: 30px;
   -webkit-box-shadow: 0 0 2px #999;
   -moz-box-shadow: 0 0 2px #999;
-  box-shadow: 0 0 2px #999;
-}
-
-.jcarousel-control-prev {
-  left: -50px;
+  box-shadow: 0 0 2px #999;*/
 }
 
 .jcarousel-control-next {
-  right: -50px;
+  position: absolute;
+  top: 40%;
+  background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/arow-movie-selection.png)
+    no-repeat scroll 1px 0 transparent;
+  width: 35px;
+  height: 68px;
+}
+
+.jcarousel-control-prev {
+  left: -38px;
+}
+
+.jcarousel-control-next {
+  right: -38px;
 }
 
 .jcarousel-control-prev:hover span,
