@@ -45,20 +45,49 @@
               <p> <strong> Thời lượng: </strong><?= $movie['duration'] ?></p>
               <p> <strong> Ngôn ngữ: </strong><?= $movie['language'] ?></p>
               <a href="#">
-                <button type="button" class="button booking-btn mt-3">
+                <button type="button" class="button booking-btn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <span>
                     <span class="book">Đặt vé</span>
                   </span>
                 </button>
               </a>
             </div>
-
           </div>
-
         </div>
-
       </div>
+    </div>
+  </div>
+</div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <?php
+          $startdate = time();
+          $enddate = strtotime("+13 days", $startdate);
+        ?>
+        <ul class="day-list">
+          <?php while ($startdate <= $enddate): ?>
+            <li>
+              <div class="day">
+                <span><?= date("m",$startdate) ?></span>
+                <em><?= date("D",$startdate) ?></em>
+                <strong><?= date("d",$startdate) ?></strong>
+              </div>
+            </li>
+            <?php $startdate = strtotime("+1 day", $startdate); ?>
+          <?php endwhile; ?>
+        </ul>    
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary">Đặt vé thôi!</button>
+      </div>
     </div>
   </div>
 </div>

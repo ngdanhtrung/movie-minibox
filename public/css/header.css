@@ -145,3 +145,43 @@ h1 {
   font-weight: 800;
   font-size: 14px;
 }
+.day {
+  color: #717171;
+  cursor: pointer;
+  height: 48px;
+  position: relative;
+  width: 77px;
+}
+.day > span {
+  color: #717171;
+  font-size: 11px;
+  left: 4px;
+  position: absolute;
+  top: 4px;
+}
+.day > em {
+  color: #717171;
+  font-size: 11px;
+  font-style: normal;
+  left: 4px;
+  position: absolute;
+  top: 20px;
+}
+.day strong {
+  color: #717171;
+  font-size: 32px;
+  font-weight: normal;
+  left: 31px;
+  line-height: 32px;
+  position: absolute;
+  top: 8px;
+}
+.day-list {
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.day-list > li {
+  float: left;
+}
