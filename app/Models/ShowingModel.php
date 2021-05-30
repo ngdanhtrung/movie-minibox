@@ -14,6 +14,7 @@ class ShowingModel extends Model
     {
         return $this->asArray()
             ->join('movie', 'movie.id = showing.movieId')
+            ->join('cinema', 'cinema.id = showing.cinemaId')
             ->where(['movie.id' => $id, 'datePlayed' => $date])
             ->findAll();
     }
