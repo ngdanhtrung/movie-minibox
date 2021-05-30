@@ -71,7 +71,7 @@
         <ul class="day-list">
           <?php while ($startdate <= $enddate) : ?>
             <li>
-              <div class="day" onclick="getDate(<?= date('Y-m-d', $startdate) ?>)">
+              <div class="day" onclick="getDate('<?= date('Ymd', $startdate) ?>')">
                 <span><?= date("m", $startdate) ?></span>
                 <em><?= date("D", $startdate) ?></em>
                 <strong><?= date("d", $startdate) ?></strong>
@@ -94,7 +94,9 @@
 <script>
   console.log('is this working?');
 
-  function getDate() {
+  function getDate(value) {
     $("#result").load("<?= site_url('default/getDate/' . $movie['id']) ?>");
+    console.log(value);
+    console.log(`<?= site_url('default/getDate/' . $movie['id']) . '/'  ?>${value}`);
   };
 </script>
