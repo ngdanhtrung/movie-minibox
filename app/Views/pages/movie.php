@@ -65,24 +65,24 @@
     <div class="modal-content">
       <div class="modal-header">
         <?php
-          $startdate = time();
-          $enddate = strtotime("+13 days", $startdate);
+        $startdate = time();
+        $enddate = strtotime("+13 days", $startdate);
         ?>
         <ul class="day-list">
-          <?php while ($startdate <= $enddate): ?>
+          <?php while ($startdate <= $enddate) : ?>
             <li>
-              <div class="day">
-                <span><?= date("m",$startdate) ?></span>
-                <em><?= date("D",$startdate) ?></em>
-                <strong><?= date("d",$startdate) ?></strong>
+              <div class="day" onclick="getDate(<?= date('Y-m-d', $startdate) ?>)">
+                <span><?= date("m", $startdate) ?></span>
+                <em><?= date("D", $startdate) ?></em>
+                <strong><?= date("d", $startdate) ?></strong>
               </div>
             </li>
             <?php $startdate = strtotime("+1 day", $startdate); ?>
           <?php endwhile; ?>
-        </ul>    
+        </ul>
       </div>
       <div class="modal-body">
-        ...
+        <div id="result"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
@@ -91,3 +91,10 @@
     </div>
   </div>
 </div>
+<script>
+  console.log('is this working?');
+
+  function getDate() {
+    $("#result").load("<?= site_url('default/getDate/' . $movie['id']) ?>");
+  };
+</script>

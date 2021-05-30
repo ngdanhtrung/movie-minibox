@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\ShowingModel;
 use App\Models\MovieModel;
 
 class Movie extends BaseController
@@ -52,5 +53,11 @@ class Movie extends BaseController
         echo view('templates/header', $data);
         echo view('pages/movie');
         echo view('templates/footer');
+    }
+    public function getDate($id = NULL)
+    {
+        $showingModel = new ShowingModel();
+        $data['showing'] = $showingModel->getShowing($id);
+        echo view('ajax/getDate', $data);
     }
 }

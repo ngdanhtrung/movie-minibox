@@ -14,7 +14,7 @@ html {
 }
 
 html {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /*@media (max-width: 960px) {
