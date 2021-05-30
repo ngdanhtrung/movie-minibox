@@ -63,6 +63,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
+      <button type="button" class="box-close" data-bs-dismiss="modal">Đóng</button>
       <div class="modal-header">
         <?php
         $startdate = time();
@@ -83,10 +84,6 @@
       </div>
       <div class="modal-body">
         <div id="result"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary">Đặt vé thôi!</button>
       </div>
     </div>
   </div>

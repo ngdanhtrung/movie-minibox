@@ -203,6 +203,22 @@
   padding: 5px;
   padding-left: 25px;
 }
+.box-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/controls.png)
+    no-repeat top center;
+  width: 38px;
+  height: 19px;
+  text-indent: -9999px;
+  border: none;
+}
+.box-close:hover {
+  background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/controls.png)
+    no-repeat bottom center;
+}
 /* CONTENT CSS */
 /*CONTENT*/
 

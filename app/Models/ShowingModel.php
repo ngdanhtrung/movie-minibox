@@ -13,6 +13,7 @@ class ShowingModel extends Model
     public function getShowing($id = NULL, $date = NULL)
     {
         return $this->asArray()
+            ->select('showing.id, cinemaName, showtime')
             ->join('movie', 'movie.id = showing.movieId')
             ->join('cinema', 'cinema.id = showing.cinemaId')
             ->where(['movie.id' => $id, 'datePlayed' => $date])
