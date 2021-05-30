@@ -10,11 +10,11 @@ class ShowingModel extends Model
 
     protected $allowedFields = ['showTime', 'datePlayed', 'room'];
 
-    public function getShowing($id = NULL)
+    public function getShowing($id = NULL, $date = NULL)
     {
         return $this->asArray()
             ->join('movie', 'movie.id = showing.movieId')
-            ->where(['movie.id' => $id])
+            ->where(['movie.id' => $id, 'datePlayed' => $date])
             ->findAll();
     }
 }

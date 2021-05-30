@@ -54,10 +54,11 @@ class Movie extends BaseController
         echo view('pages/movie');
         echo view('templates/footer');
     }
-    public function getDate($id = NULL)
+    public function getDate($id = NULL, $date = NULL)
     {
         $showingModel = new ShowingModel();
-        $data['showing'] = $showingModel->getShowing($id);
+        $datePlayed = date('Y-m-d', $date);
+        $data['showing'] = $showingModel->getShowing($id, $datePlayed);
         echo view('ajax/getDate', $data);
     }
 }
