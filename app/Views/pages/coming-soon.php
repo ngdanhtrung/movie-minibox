@@ -24,9 +24,9 @@
                 <?php if ($movieComingSoon) {
                     foreach ($movieComingSoon as $movieItem) : ?>
                         <div class="col my-3">
-                            <div class="card h-100 m-3 mx-4 p-2 bg-transparent" style="width: 14rem; font-size: 0.9rem">
+                            <div class="card h-100 m-3 mx-4 p-2 bg-transparent product-card" style="width: 14rem; font-size: 0.9rem">
                                 <a href="/default/<?= $movieItem["id"] ?>" style="text-decoration: none; color: inherit;" ;>
-                                    <img class="card-img-top border border-dark border-5" style="height: 28vh; object-fit: cover;" src="<?= $movieItem["image"] ?>" alt="Card image cap">
+                                    <img class="card-img-top product-img" style="height: 28vh; object-fit: cover;" src="<?= $movieItem["image"] ?>" alt="Card image cap">
                                     <div class="card-body" style="height: fit-content; overflow: hidden;">
                                         <p class="card-text fw-bold"><?= $movieItem["movieName"] ?></p>
                                 </a>

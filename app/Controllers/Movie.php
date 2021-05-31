@@ -61,4 +61,23 @@ class Movie extends BaseController
         $data['showing'] = $showingModel->getShowing($id, $datePlayed);
         echo view('ajax/getDate', $data);
     }
+    public function booking($id = NULL)
+    {
+        $showingModel = new ShowingModel();
+        $data['showing'] = $showingModel->where('id', $id)->first();
+        echo view('templates/header', $data);
+        echo view('pages/booking');
+        echo view('templates/footer');
+    }
+    public function getSeats($id = NULL, $s1 = NULL, $s2 = NULL, $s3 = NULL, $s4 = NULL, $s5 = NULL, $s6 = NULL, $s7 = NULL, $s8 = NULL)
+    {
+        $showingModel = new ShowingModel(); //still missing join ppayment
+        $data['showing'] = $showingModel->where('id', $id)->first();
+        $data['seats'] = [];
+        for ($i = 1; $i <= 8; $i++) {
+            $varName = 's' . $i;
+            if (!is_null(${$varName})) array_push($data['seats'], ${$varName});
+        }
+        echo view('ajax/getSeat', $data);
+    }
 }

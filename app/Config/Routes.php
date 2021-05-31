@@ -36,8 +36,10 @@ $routes->setAutoRoute(true);
 
 $routes->get('/', 'Pages::index');
 $routes->match(['get', 'post'], '/account/(:any)', 'Account::$1');
+$routes->get('/default/getSeat/(:any)', 'Movie::getSeats/$1');
 $routes->get('/movie/create', 'Movie::create');
 $routes->get('/default/getDate/(:any)', 'Movie::getDate/$1');
+$routes->get('/default/booking/(:any)', 'Movie::booking/$1');
 $routes->get('/default/(:any)', 'Movie::view/$1');
 $routes->get('(:any)', 'Pages::showme/$1');
 

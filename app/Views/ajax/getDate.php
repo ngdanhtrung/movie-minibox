@@ -7,8 +7,8 @@ if ($showing) {
                 <h6 class="mb-4 fs-4"><?= $showingItem["cinemaName"] ?></h6>
                 <?php foreach ($showing as $showingTime) {
                     if ($showingTime["cinemaName"] == $showingItem["cinemaName"]) {
-                        echo '<a href="' . base_url() . '/booking/' . $showingTime["id"] . '" style="text-decoration: none; color: inherit;">';
-                        echo '<div class="border border-1 d-inline p-2 px-4 me-1">';
+                        echo '<a href="' . base_url() . '/default/booking/' . $showingTime["id"] . '" style="text-decoration: none; color: inherit;">';
+                        echo '<div class="d-inline p-2 px-4 me-1 timebox">';
                         echo $showingTime["showtime"];
                         echo '</div>';
                         echo '</a>';

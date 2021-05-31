@@ -87,6 +87,22 @@
 }
 /*MOVIE CSS*/
 
+.product-card:hover {
+  border: 1px solid #e7770f;
+  color: #e7770f;
+  transition: color 0.5s ease, border-color 0.5s ease;
+}
+
+.product-img {
+  border: 5px solid #212529;
+}
+
+.product-card:hover .product-img {
+  border-color: #e7770f !important;
+  border-width: 2px;
+  transition: border-color 0.5s ease, border-width 0.5s ease;
+}
+
 .category-title {
   border-bottom: 3px solid #241d1e;
   width: inherit;
@@ -218,6 +234,12 @@
 .box-close:hover {
   background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/controls.png)
     no-repeat bottom center;
+}
+.timebox {
+  border: 1px solid #dee2e6;
+}
+.timebox:hover {
+  border-color: #212529;
 }
 /* CONTENT CSS */
 /*CONTENT*/

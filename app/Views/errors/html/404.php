@@ -14,11 +14,11 @@
       font-family: 'Ubuntu Condensed', sans-serif;
       padding: 0;
       margin: 0;
+      overflow: hidden;
     }
 
     #ame {
-      width: 173px;
-      height: 179px;
+      width: 6%;
     }
 
     .main {
@@ -56,13 +56,13 @@
 
     @keyframes x {
       100% {
-        transform: translateX(calc(100vw - 173px));
+        transform: translateX(calc(175vw));
       }
     }
 
     @keyframes y {
       100% {
-        transform: translateY(calc(100vh - 179px));
+        transform: translateY(calc(175vh));
       }
     }
 
@@ -74,6 +74,14 @@
     a:hover {
       color: #ff0;
     }
+
+    .abs-field {
+      height: 175vh;
+      width: 175vw;
+      position: absolute;
+      top: -50%;
+      left: -50%;
+    }
   </style>
 </head>
 
@@ -84,10 +92,11 @@
       <div class="small-title">Tôi là ai? Đây là đâu?</div>
       <div class="small-title"><a href="/">Nhấn vào đây để quay về trang chủ</a></div>
     </div>
+  </div>
+  <div class="abs-field">
     <div class="x">
       <img class="y" src="https://cdn.discordapp.com/attachments/811850529965080587/847732286903287818/loader.gif" alt="amespin" id="ame" />
     </div>
-  </div>
 </body>
 
 </html>
