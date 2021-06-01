@@ -10,9 +10,9 @@ if ($seats) {
 }
 
 
-/*if (str_contains('G10, G11', 'G10')) {
+if (str_contains('"B5", "D10"', 'A10')) {
     echo "<br> G10 is taken! <br>";
 }
-if (str_contains('G10, G11', 'G11')) {
+if (str_contains('"A2", "A6"', 'G11')) {
     echo "G11 is taken!";
-}*/
+}

@@ -1,24 +1,27 @@
 <div class="container">
     <?php
     $seats = [];
-    $letterArr = ['A', 'B', 'C', 'D', 'E'];
-    for ($i = 0; $i < 5; $i++) {
-        for ($j = 0; $j <= 10; $j++) {
+    $letterArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    $bookedSeatString = "";
+    for ($i = 0; $i < 7; $i++) {
+        for ($j = 1; $j <= 8; $j++) {
             array_push($seats, $letterArr[$i] . $j);
         }
     }
     echo '<pre>';
     print_r($bookedSeats);
     echo '</pre>';
+    foreach ($bookedSeats as $bookedSeat) {
+        $bookedSeatString = $bookedSeatString . $bookedSeat['seat'] . ', ';
+    }
+    //echo $bookedSeatString;
     ?>
     <?php foreach ($seats as $seat) : ?>
-        <?php foreach ($bookedSeats as $bookedSeat) : ?>
-            <?php if (str_contains($bookedSeat['seat'], '"' . $seat . '"')) : ?>
-                <button style="background: red" onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>
-            <?php else : ?>
-                <button onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>
-            <?php endif; ?>
-        <?php endforeach; ?>
+        <?php if (str_contains($bookedSeatString, '"' . $seat . '"')) : ?>
+            <button style="background: red"><?= $seat ?></button>
+        <?php else : ?>
+            <button onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>
+        <?php endif; ?>
     <?php endforeach; ?>
     <div id="result"></div>
 </div>
