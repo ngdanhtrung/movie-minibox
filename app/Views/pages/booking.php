@@ -30,7 +30,9 @@
             <?php endforeach; ?>
         </div>
     </div>                    
-    <div id="result"></div>
+    <div class="container">
+        <p id="result"></p>
+    </div>
 
 </div>
 <script>

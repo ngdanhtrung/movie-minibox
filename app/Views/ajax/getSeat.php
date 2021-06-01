@@ -1,6 +1,6 @@
 <?php
-echo 'Số ghế đặt: ';
 if ($seats) {
+    echo '<strong> Bạn chọn ghế: </strong>';
     foreach ($seats as $seat) {
         echo $seat . ', ';
     }
