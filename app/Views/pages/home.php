@@ -54,7 +54,7 @@
           <div class="jcarousel" data-jcarousel="true">
             <ul style="left: 0px; top: 0px;">
               <?php foreach ($movieNowShowing as $movie) {
-                echo '<li><a href="/default/' . $movie['id'] . '"><img class="img-loading" src=' .  $movie['bigImage'] . ' alt="Image" loading="lazy"></a></li>';
+                echo '<li><a href="/default/' . $movie['id'] . '"><img class="img-loading" src=' .  $movie['image'] . ' alt="Image" loading="lazy"></a></li>';
               } ?>
             </ul>
           </div>

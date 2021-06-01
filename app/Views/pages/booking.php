@@ -8,26 +8,43 @@
             array_push($seats, $letterArr[$i] . $j);
         }
     }
-    echo '<pre>';
-    print_r($bookedSeats);
-    echo '</pre>';
+    // echo '<pre>';
+    // print_r($bookedSeats);
+    // echo '</pre>';
     foreach ($bookedSeats as $bookedSeat) {
         $bookedSeatString = $bookedSeatString . $bookedSeat['seat'] . ', ';
     }
     //echo $bookedSeatString;
     ?>
-    <?php foreach ($seats as $seat) : ?>
-        <?php if (str_contains($bookedSeatString, '"' . $seat . '"')) : ?>
-            <button style="background: red"><?= $seat ?></button>
-        <?php else : ?>
-            <button onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>
-        <?php endif; ?>
-    <?php endforeach; ?>
+    <div class="container seats-selection">
+        <h4 style="text-align:center">Màn Hình</h4>
+        <div class="row row-cols-8 g-2">
+            <?php foreach ($seats as $seat) : ?>
+                <div class="col">
+                    <?php if (str_contains($bookedSeatString, '"' . $seat . '"')) : ?>
+                        <button class="btn btn-danger"><?= $seat ?></button>
+                    <?php else : ?>
+                        <button class="btn btn-light" onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>                    
     <div id="result"></div>
+    
 </div>
 <script>
     $(document).ready(function() {
         $("#result").load(`${url}/<?= $showing["id"] ?>/`);
+        $(".btn").click(function(){
+            if (this.className == "btn btn-light"){
+                $(this).removeClass("btn-light");
+                $(this).addClass("btn-success");
+            }else{
+                $(this).removeClass("btn-success");
+                $(this).addClass("btn-light");
+            }
+        });
         console.log(`${url}/<?= $showing["id"] ?>/`);
     });
 

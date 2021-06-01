@@ -185,3 +185,11 @@ h1 {
 .day-list > li {
   float: left;
 }
+/* Because Boostrap doesn't have row-cols-8 so I have to write it */
+.row-cols-8 > *{
+  flex:0 0 auto;
+  width:12.5%
+}
+.seats-selection{
+  width: 500px;
+}

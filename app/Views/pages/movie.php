@@ -31,7 +31,7 @@
         <div class="row m-auto">
           <div class="col-sm-2 p-0">
 
-            <img src="<?= $movie['image'] ?>" class="img-fluid float-start img-about p-0" alt="...">
+            <img src="<?= $movie['bigImage'] ?>" class="img-fluid float-start img-about p-0" alt="...">
           </div>
           <div class="col ms-2 pe-0">
             <div class="container-fluid m-0 p-0 product-name">
