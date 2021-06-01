@@ -29,7 +29,7 @@
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>                    
+    </div>
     <div class="container">
         <p id="result"></p>
     </div>
@@ -38,12 +38,12 @@
 <script>
     $(document).ready(function() {
         $("#result").load(`${url}/<?= $showing["id"] ?>/`);
-        $(".btn").click(function(){
-            if (seatMax){
-                if (this.className == "btn btn-light"){
+        $(".btn").click(function() {
+            if (seatMax) {
+                if (this.className == "btn btn-light") {
                     $(this).removeClass("btn-light");
                     $(this).addClass("btn-success");
-                }else{
+                } else if (this.className == "btn btn-success") {
                     $(this).removeClass("btn-success");
                     $(this).addClass("btn-light");
                 }
