@@ -254,3 +254,9 @@
 .banner-carousel-container {
   background: url(/img/bg_c_bricks.png) repeat-x scroll 0 rgba(0, 0, 0, 0);
 }
+
+/*LOADER CSS*/
+.img-loading {
+  background: transparent url('/img/loader.gif') center no-repeat;
+  background-size: 24%;
+}

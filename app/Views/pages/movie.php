@@ -44,13 +44,13 @@
               <p> <strong> Khởi chiếu: </strong><?= $movie['premiereDate'] ?></p>
               <p> <strong> Thời lượng: </strong><?= $movie['duration'] ?></p>
               <p> <strong> Ngôn ngữ: </strong><?= $movie['language'] ?></p>
-              <a href="#">
+              <?php if ($movie['isShowing'] == 1) : ?>
                 <button type="button" class="button booking-btn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <span>
                     <span class="book">Đặt vé</span>
                   </span>
                 </button>
-              </a>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -66,6 +66,7 @@
       <button type="button" class="box-close" data-bs-dismiss="modal">Đóng</button>
       <div class="modal-header">
         <?php
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $startdate = time();
         $enddate = strtotime("+13 days", $startdate);
         ?>
@@ -88,9 +89,18 @@
     </div>
   </div>
 </div>
-
 <script>
-  console.log('is this working?');
+  $(document).ready(function() {
+    $("#result").load(`<?= site_url('default/getDate/' . $movie['id']) . '/' . date(time()) ?>`);
+    console.log(`<?= site_url('default/getDate/' . $movie['id']) . '/' . date(time()) ?>`);
+    $('.day').first().addClass('border border-dark');
+
+    $('.day').on('click', function() {
+      $('.day').removeClass('border border-dark');
+      $(this).addClass('border border-dark');
+    });
+
+  });
 
   function getDate(value) {
     $("#result").load(`<?= site_url('default/getDate/' . $movie['id']) . '/'  ?>${value}`);

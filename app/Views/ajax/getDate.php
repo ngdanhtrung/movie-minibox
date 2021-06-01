@@ -9,7 +9,7 @@ if ($showing) {
                     if ($showingTime["cinemaName"] == $showingItem["cinemaName"]) {
                         echo '<a href="' . base_url() . '/default/booking/' . $showingTime["id"] . '" style="text-decoration: none; color: inherit;">';
                         echo '<div class="d-inline p-2 px-4 me-1 timebox">';
-                        echo $showingTime["showtime"];
+                        echo date('H:i A', strtotime($showingTime["showtime"]));
                         echo '</div>';
                         echo '</a>';
                     }

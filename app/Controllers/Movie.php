@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ShowingModel;
 use App\Models\MovieModel;
+use App\Models\PaymentModel;
 
 class Movie extends BaseController
 {
@@ -56,15 +57,19 @@ class Movie extends BaseController
     }
     public function getDate($id = NULL, $date = NULL)
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $showingModel = new ShowingModel();
         $datePlayed = date('Y-m-d', $date);
-        $data['showing'] = $showingModel->getShowing($id, $datePlayed);
+        $showTime = date('Y-m-d H:i:s', time());
+        $data['showing'] = $showingModel->getShowing($id, $datePlayed, $showTime);
         echo view('ajax/getDate', $data);
     }
     public function booking($id = NULL)
     {
         $showingModel = new ShowingModel();
+        $paymentModel = new PaymentModel();
         $data['showing'] = $showingModel->where('id', $id)->first();
+        $data['bookedSeats'] = $paymentModel->getBookedSeats($id);
         echo view('templates/header', $data);
         echo view('pages/booking');
         echo view('templates/footer');
