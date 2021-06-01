@@ -74,6 +74,7 @@
         var removedSeat = 0;
         var next = `${value}/`;
         if (seats.includes(next)) {
+            seatMax = true;
             seats = seats.replace(`${next}`, "");
             removeA(seatArr, next);
             removedSeat = 1;
