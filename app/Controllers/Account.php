@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AccountModel;
+use App\Models\PaymentModel;
 
 
 class Account extends BaseController
@@ -222,6 +223,18 @@ class Account extends BaseController
             $data['user'] = $accountModel->where('id', session()->get('id'))->first();
             echo view('templates/header', $data);
             echo view('pages/update');
+            echo view('templates/footer');
+        }
+    }
+    function history()
+    {
+        if (!session()->has('isLoggedIn')) {
+            return redirect()->to('/account/login');
+        } else {
+            $model = new PaymentModel();
+            $data['history'] = $model->getPaymentByUser(session()->get('id'));
+            echo view('templates/header', $data);
+            echo view('pages/history');
             echo view('templates/footer');
         }
     }

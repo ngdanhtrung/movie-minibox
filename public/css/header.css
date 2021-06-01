@@ -193,3 +193,13 @@ h1 {
 .seats-selection{
   width: 500px;
 }
+.row-cols-resize > *{
+  flex:0 0 auto;
+  width:50%
+}
+@media only screen and (max-width: 990px) {
+  .row-cols-resize > *{
+    flex:0 0 auto;
+    width:100%
+  }
+}
