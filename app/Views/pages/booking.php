@@ -31,13 +31,13 @@
         </div>
     </div>                    
     <div id="result"></div>
-    
+
 </div>
 <script>
     $(document).ready(function() {
         $("#result").load(`${url}/<?= $showing["id"] ?>/`);
         $(".btn").click(function(){
-            if (this.className == "btn btn-light"){
+            if (this.className == "btn btn-light" && seatArr.length <= 8){
                 $(this).removeClass("btn-light");
                 $(this).addClass("btn-success");
             }else{
@@ -72,7 +72,7 @@
             seats = seats.replace(`${next}`, "");
             removeA(seatArr, next);
             removedSeat = 1;
-        } else if (seatArr.length >= 8) {
+        } else if (seatArr.length > 7) {
             alert('Bạn chỉ được đặt tối đa 8 ghế!');
             return;
         }
