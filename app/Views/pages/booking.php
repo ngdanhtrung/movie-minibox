@@ -39,12 +39,14 @@
     $(document).ready(function() {
         $("#result").load(`${url}/<?= $showing["id"] ?>/`);
         $(".btn").click(function(){
-            if (this.className == "btn btn-light" && seatArr.length <= 8){
-                $(this).removeClass("btn-light");
-                $(this).addClass("btn-success");
-            }else{
-                $(this).removeClass("btn-success");
-                $(this).addClass("btn-light");
+            if (seatMax){
+                if (this.className == "btn btn-light"){
+                    $(this).removeClass("btn-light");
+                    $(this).addClass("btn-success");
+                }else{
+                    $(this).removeClass("btn-success");
+                    $(this).addClass("btn-light");
+                }
             }
         });
         console.log(`${url}/<?= $showing["id"] ?>/`);
@@ -66,6 +68,7 @@
     var url = `<?= site_url('/default/getSeat') ?>`;
     var seats = '';
     var seatArr = [];
+    var seatMax = true;
 
     function addSeat(value) {
         var removedSeat = 0;
@@ -75,6 +78,7 @@
             removeA(seatArr, next);
             removedSeat = 1;
         } else if (seatArr.length > 7) {
+            seatMax = false;
             alert('Bạn chỉ được đặt tối đa 8 ghế!');
             return;
         }
