@@ -67,15 +67,17 @@ class Movie extends BaseController
     public function booking($id = NULL)
     {
         if (!session()->has('isLoggedIn')) return redirect()->to('/account/login');
-        $showingModel = new ShowingModel();
-        $paymentModel = new PaymentModel();
-        $data['showing'] = $showingModel->select('showing.id, cinemaName, movieName, showtime, room')
+        {
+            $showingModel = new ShowingModel();
+            $paymentModel = new PaymentModel();
+            $data['showing'] = $showingModel->select('showing.id, cinemaName, movieName, showtime, room')
             ->join('movie', 'movie.id = showing.movieId')
             ->join('cinema', 'cinema.id = showing.cinemaId')->where('showing.id', $id)->first();
-        $data['bookedSeats'] = $paymentModel->getBookedSeats($id);
-        echo view('templates/header', $data);
-        echo view('pages/booking');
-        echo view('templates/footer');
+            $data['bookedSeats'] = $paymentModel->getBookedSeats($id);
+            echo view('templates/header', $data);
+            echo view('pages/booking');
+            echo view('templates/footer');
+        }
     }
     public function getSeats($id = NULL)
     {
@@ -90,21 +92,24 @@ class Movie extends BaseController
     }
     public function confirm($id = NULL, $price = NULL)
     {
-        $uri = $this->request->uri->getSegments();
-        $data['chosenSeats'] = $uri;
-        $data['price'] = $price;
-        $showingModel = new ShowingModel();
-        $data['showing'] = $showingModel->select('showing.id, cinemaName, movieName, showtime, room')
+        if (!session()->has('isLoggedIn')) return redirect()->to('/account/login');
+        {
+            $uri = $this->request->uri->getSegments();
+            $data['chosenSeats'] = $uri;
+            $data['price'] = $price;
+            $showingModel = new ShowingModel();
+            $data['showing'] = $showingModel->select('showing.id, cinemaName, movieName, showtime, room')
             ->join('movie', 'movie.id = showing.movieId')
             ->join('cinema', 'cinema.id = showing.cinemaId')->where('showing.id', $id)->first();
 
-        for ($i = 0; $i < 5; $i++) {
-            array_shift($data['chosenSeats']);
+            for ($i = 0; $i < 5; $i++) {
+                array_shift($data['chosenSeats']);
+            }
+
+
+            echo view('templates/header', $data);
+            echo view('pages/confirm');
+            echo view('templates/footer');
         }
-
-
-        echo view('templates/header', $data);
-        echo view('pages/confirm');
-        echo view('templates/footer');
     }
 }

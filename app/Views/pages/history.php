@@ -30,13 +30,13 @@
                 <div class="col-6"><?= $ticket["cinemaAddress"] ?></div>
                 <div class="col-6"><?= date("d-M-Y",strtotime($ticket["date"])) ?></div>
                 <div class="col-6"><?= date("H:i:s",strtotime($ticket["date"])) ?></div>
-                <div class="col-12"><br></div>
+                <div class="col-12"><hr></div>
                 <div class="col-12"><?= $ticket["movieName"] ?></div>
                 <div class="col-6"><?= date("d/M/Y",strtotime($ticket["showtime"])) ?></div>
                 <div class="col-6"><?= date("H:i",strtotime($ticket["showtime"])) ?></div>
                 <div class="col-6">Rạp: <?= $ticket["room"] ?></div>
                 <div class="col-6">Ghế: <?= str_replace("\"","",$ticket["seat"]) ?></div>
-                <div class="col-12"><br></div>
+                <div class="col-12"><hr></div>
                 <div class="col-6">Total</div>
                 <div class="col-6">VND <?= $ticket["amount"] ?></div>
             </div>
