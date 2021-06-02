@@ -66,23 +66,45 @@ class Movie extends BaseController
     }
     public function booking($id = NULL)
     {
+        if (!session()->has('isLoggedIn')) return redirect()->to('/account/login');
         $showingModel = new ShowingModel();
         $paymentModel = new PaymentModel();
-        $data['showing'] = $showingModel->where('id', $id)->first();
+        $data['showing'] = $showingModel->select('showing.id, cinemaName, movieName, showtime, room')
+            ->join('movie', 'movie.id = showing.movieId')
+            ->join('cinema', 'cinema.id = showing.cinemaId')->where('showing.id', $id)->first();
         $data['bookedSeats'] = $paymentModel->getBookedSeats($id);
         echo view('templates/header', $data);
         echo view('pages/booking');
         echo view('templates/footer');
     }
-    public function getSeats($id = NULL, $s1 = NULL, $s2 = NULL, $s3 = NULL, $s4 = NULL, $s5 = NULL, $s6 = NULL, $s7 = NULL, $s8 = NULL)
+    public function getSeats($id = NULL)
     {
         $showingModel = new ShowingModel(); //still missing join ppayment
-        $data['showing'] = $showingModel->where('id', $id)->first();
-        $data['seats'] = [];
-        for ($i = 1; $i <= 8; $i++) {
-            $varName = 's' . $i;
-            if (!is_null(${$varName})) array_push($data['seats'], ${$varName});
+        $data['showing'] = $showingModel->select('showing.id, price')->join('movie', 'movie.id = showing.movieId')->where('showing.id', $id)->first();
+        $uri = $this->request->uri->getSegments();
+        $data['seats'] = $uri;
+        for ($i = 0; $i < 3; $i++) {
+            array_shift($data['seats']);
         }
         echo view('ajax/getSeat', $data);
+    }
+    public function confirm($id = NULL, $price = NULL)
+    {
+        $uri = $this->request->uri->getSegments();
+        $data['chosenSeats'] = $uri;
+        $data['price'] = $price;
+        $showingModel = new ShowingModel();
+        $data['showing'] = $showingModel->select('showing.id, cinemaName, movieName, showtime, room')
+            ->join('movie', 'movie.id = showing.movieId')
+            ->join('cinema', 'cinema.id = showing.cinemaId')->where('showing.id', $id)->first();
+
+        for ($i = 0; $i < 5; $i++) {
+            array_shift($data['chosenSeats']);
+        }
+
+
+        echo view('templates/header', $data);
+        echo view('pages/confirm');
+        echo view('templates/footer');
     }
 }

@@ -8,23 +8,33 @@
             array_push($seats, $letterArr[$i] . $j);
         }
     }
-    // echo '<pre>';
-    // print_r($bookedSeats);
-    // echo '</pre>';
+    /*echo '<pre>';
+    print_r($showing);
+    echo '</pre>';*/
     foreach ($bookedSeats as $bookedSeat) {
         $bookedSeatString = $bookedSeatString . $bookedSeat['seat'] . ', ';
     }
     //echo $bookedSeatString;
     ?>
-    <div class="container seats-selection">
-        <h4 style="text-align:center">Màn Hình</h4>
+    <div class="container mt-5" style="width: 800px">
+        <div class="dashboard m-0">
+            <h6 class="fw-bold fs-6 py-1 m-0" style="color: #fff">BOOKING ONLINE</h6>
+        </div>
+        <div class="top-content">
+            <h6 class="fw-bold fs-6"><?= $showing['movieName'] . ' | ' . $showing['cinemaName'] . ' | Cinema ' . $showing['room'] ?></h6>
+            <h6 class="fw-bold fs-6"><?= $showing['showtime'] ?></h6>
+        </div>
+    </div>
+
+    <div class="container seats-selection my-5">
+        <div class="screen"></div>
         <div class="row row-cols-8 g-2">
             <?php foreach ($seats as $seat) : ?>
                 <div class="col">
                     <?php if (str_contains($bookedSeatString, '"' . $seat . '"')) : ?>
-                        <button class="btn btn-danger"><?= $seat ?></button>
+                        <button class="btn btn-danger" style="width: 48px"><?= $seat ?></button>
                     <?php else : ?>
-                        <button class="btn btn-light" onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>
+                        <button class="btn btn-light" style="width: 48px" onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
@@ -39,7 +49,7 @@
     $(document).ready(function() {
         $("#result").load(`${url}/<?= $showing["id"] ?>/`);
         $(".btn").click(function() {
-            if (seatMax) {
+            if (!seatMax) {
                 if (this.className == "btn btn-light") {
                     $(this).removeClass("btn-light");
                     $(this).addClass("btn-success");
@@ -49,7 +59,7 @@
                 }
             }
         });
-        console.log(`${url}/<?= $showing["id"] ?>/`);
+        //console.log(`${url}/<?= $showing["id"] ?>/`);
     });
 
     function removeA(arr) {
@@ -64,22 +74,21 @@
         }
         return arr;
     };
-    console.log('is this working?');
     var url = `<?= site_url('/default/getSeat') ?>`;
     var seats = '';
     var seatArr = [];
-    var seatMax = true;
+    var seatMax = false;
 
     function addSeat(value) {
         var removedSeat = 0;
         var next = `${value}/`;
         if (seats.includes(next)) {
-            seatMax = true;
+            seatMax = false;
             seats = seats.replace(`${next}`, "");
             removeA(seatArr, next);
             removedSeat = 1;
         } else if (seatArr.length > 7) {
-            seatMax = false;
+            seatMax = true;
             alert('Bạn chỉ được đặt tối đa 8 ghế!');
             return;
         }
@@ -91,7 +100,7 @@
             removeA(seatArr, next);
         }
         $("#result").load(`${url}/<?= $showing["id"] ?>/${seats}`);
-        console.log(`${url}/<?= $showing["id"] ?>/${seats}`);
-        console.log(seats);
+        /*console.log(`${url}/<?= $showing["id"] ?>/${seats}`);
+        console.log(seats);*/
     };
 </script>

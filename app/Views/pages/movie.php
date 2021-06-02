@@ -92,7 +92,7 @@
 <script>
   $(document).ready(function() {
     $("#result").load(`<?= site_url('default/getDate/' . $movie['id']) . '/' . date(time()) ?>`);
-    console.log(`<?= site_url('default/getDate/' . $movie['id']) . '/' . date(time()) ?>`);
+    //console.log(`<?= site_url('default/getDate/' . $movie['id']) . '/' . date(time()) ?>`);
     $('.day').first().addClass('border border-dark');
 
     $('.day').on('click', function() {
@@ -104,6 +104,6 @@
 
   function getDate(value) {
     $("#result").load(`<?= site_url('default/getDate/' . $movie['id']) . '/'  ?>${value}`);
-    console.log(`<?= site_url('default/getDate/' . $movie['id']) . '/'  ?>${value}`);
+    //console.log(`<?= site_url('default/getDate/' . $movie['id']) . '/'  ?>${value}`);
   };
 </script>

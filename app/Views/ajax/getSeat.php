@@ -1,18 +1,32 @@
 <?php
+$selectedSeats = "";
+$sum = 0;
+$seatURI = "";
 if ($seats) {
-    echo '<strong> Bạn chọn ghế: </strong>';
     foreach ($seats as $seat) {
-        echo $seat . ', ';
+        $selectedSeats = $selectedSeats . $seat . ', ';
+        $seatURI = $seatURI . '/' . $seat;
+        $sum = $sum + $showing['price'];
     }
-    echo '</pre>';
-    print_r($seats);
-    echo '<pre>';
-}
-
-
-if (str_contains('"B5", "D10"', 'A10')) {
-    echo "<br> G10 is taken! <br>";
-}
-if (str_contains('"A2", "A6"', 'G11')) {
-    echo "G11 is taken!";
-}
+    /*echo '</pre>';
+    print_r($showing);
+    echo '<pre>';*/
+    //echo trim($selectedSeats);
+    $selectedSeats = substr(trim($selectedSeats), 0, -1);
+} ?>
+<div class="container">
+    <div class="container px-5 mt-3" style="width: 800px">
+        <strong> Bạn chọn ghế: </strong>
+        <?php if ($seats) {
+            echo $selectedSeats;
+        } ?>
+        <br>
+        <strong> Tổng số tiền: </strong>
+        <?php if ($seats) : ?>
+            <?php echo number_format($sum) . ' VND'; ?>
+            <a href="<?= base_url('/default/booking/confirm/' . $showing["id"] . '/' . $sum . '/' . $seatURI . '/') ?>">
+                <p id="btn-confirm" class="btn btn-danger float-end">NEXT</p>
+            </a>
+        <?php endif; ?>
+    </div>
+</div>
