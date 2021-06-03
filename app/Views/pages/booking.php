@@ -14,7 +14,7 @@
     foreach ($bookedSeats as $bookedSeat) {
         $bookedSeatString = $bookedSeatString . $bookedSeat['seat'] . ', ';
     }
-    //echo $bookedSeatString;
+    $availSeats = [];
     ?>
     <div class="container mt-5" style="width: 800px">
         <div class="dashboard m-0">
@@ -35,11 +35,15 @@
                         <button class="btn btn-danger" style="width: 48px"><?= $seat ?></button>
                     <?php else : ?>
                         <button class="btn btn-light" style="width: 48px" onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>
+                        <?php array_push($availSeats, $seat) ?>
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
+    <?php $js_array = json_encode($availSeats);
+    //echo "var javascript_array = " . $js_array . ";\n"; 
+    ?>
     <div class="container">
         <p id="result"></p>
     </div>
@@ -74,18 +78,22 @@
         }
         return arr;
     };
-    var url = `<?= site_url('/default/getSeat') ?>`;
+    const url = `<?= site_url('/default/getSeat') ?>`;
     var seats = '';
     var seatArr = [];
     var seatMax = false;
+    const matchArr = <?php echo $js_array; ?>;
 
     function addSeat(value) {
+        if (matchArr.includes(value) === false) {
+            return;
+        }
         var removedSeat = 0;
         var next = `${value}/`;
         if (seats.includes(next)) {
-            seatMax = false;
             seats = seats.replace(`${next}`, "");
             removeA(seatArr, next);
+            seatMax = false;
             removedSeat = 1;
         } else if (seatArr.length > 7) {
             seatMax = true;

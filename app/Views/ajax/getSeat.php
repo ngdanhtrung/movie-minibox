@@ -13,6 +13,12 @@ if ($seats) {
     echo '<pre>';*/
     //echo trim($selectedSeats);
     $selectedSeats = substr(trim($selectedSeats), 0, -1);
+    $data = [
+        'seats' => $selectedSeats,
+        'price' => $sum,
+        'showId' => $showing['id']
+    ];
+    session()->set($data);
 } ?>
 <div class="container">
     <div class="container px-5 mt-3" style="width: 800px">
@@ -24,7 +30,7 @@ if ($seats) {
         <strong> Tổng số tiền: </strong>
         <?php if ($seats) : ?>
             <?php echo number_format($sum) . ' VND'; ?>
-            <a href="<?= base_url('/default/booking/confirm/' . $showing["id"] . '/' . $sum . '/' . $seatURI . '/') ?>">
+            <a href="<?= base_url('/default/booking/confirm/') ?>">
                 <p id="btn-confirm" class="btn btn-danger float-end">NEXT</p>
             </a>
         <?php endif; ?>

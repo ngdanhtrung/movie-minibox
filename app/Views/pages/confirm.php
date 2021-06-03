@@ -1,9 +1,3 @@
-<?php
-$selectedSeats = '';
-foreach ($chosenSeats as $chosenSeat) {
-    $selectedSeats = $selectedSeats . $chosenSeat . ', ';
-}
-$selectedSeats = substr(trim($selectedSeats), 0, -1); ?>
 <div class="container mt-5" style="width: 800px">
     <div class="dashboard m-0">
         <h6 class="fw-bold fs-6 py-1 m-0" style="color: #fff">XÁC NHẬN THÔNG TIN</h6>
@@ -16,10 +10,10 @@ $selectedSeats = substr(trim($selectedSeats), 0, -1); ?>
     <div class="container">
         <h6 style="font-size: 0.9rem">Tên: <?= session()->get('username') ?></h6>
         <h6 style="font-size: 0.9rem">Email: <?= session()->get('email') ?></h6>
-        <h6 style="font-size: 0.9rem">Số ghế đặt: <?= $selectedSeats ?></h6>
+        <h6 style="font-size: 0.9rem">Số ghế đặt: <?= $seats ?></h6>
         <h6 style="font-size: 0.9rem">Ngày đặt vé: <?= date("d/m/Y H:i:s", time()) ?></h6>
         <h6 style="font-size: 0.9rem">Tổng số tiền: <?= number_format($price) . ' VND' ?></h6>
         <a class="change-btn" href="/default/booking/<?= $showing['id'] ?>">Thay đổi</a>
-        <a class="change-btn float-end" style="background: #e71a0f " href="#">Tiếp tục</a>
+        <a class="change-btn float-end" style="background: #e71a0f " href="#">Đặt vé</a>
     </div>
 </div>
