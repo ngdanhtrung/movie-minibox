@@ -31,7 +31,7 @@
         <div class="row row-cols-8 g-2">
             <?php foreach ($seats as $seat) : ?>
                 <div class="col">
-                    <?php if (str_contains($bookedSeatString, '"' . $seat . '"')) : ?>
+                    <?php if (str_contains($bookedSeatString, $seat )): //because I changed input data so we don't need double quote?> 
                         <button class="btn btn-danger" style="width: 48px"><?= $seat ?></button>
                     <?php else : ?>
                         <button class="btn btn-light" style="width: 48px" onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>

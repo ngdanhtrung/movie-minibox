@@ -8,7 +8,7 @@ class PaymentModel extends Model
 {
     protected $table = 'payment';
 
-    protected $allowedFields = ['ammount', 'date', 'seat'];
+    protected $allowedFields = ['userId', 'showingId', 'ammount', 'date', 'seat'];
 
     public function getBookedSeats($id = NULL)
     {

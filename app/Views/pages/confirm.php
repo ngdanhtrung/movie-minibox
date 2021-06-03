@@ -8,13 +8,15 @@
     </div>
     <hr>
     <div class="container">
-        <h6 style="font-size: 0.9rem">Tên: <?= session()->get('username') ?></h6>
-        <h6 style="font-size: 0.9rem">Email: <?= session()->get('email') ?></h6>
-        <h6 style="font-size: 0.9rem">Số ghế đặt: <?= $seats ?></h6>
-        <h6 style="font-size: 0.9rem">Ngày đặt vé: <?= date("d/m/Y H:i:s", time()) ?></h6>
-        <h6 style="font-size: 0.9rem">Tổng số tiền: <?= number_format($price) . ' VND' ?></h6>
-        <a class="change-btn" href="/default/booking/<?= $showing['id'] ?>">Thay đổi</a>
-        <a class="change-btn float-end" style="background: #e71a0f " href="#">Đặt vé</a>
+        <form action="/default/booking/confirm/success" method="post">
+            <h6 style="font-size: 0.9rem">Tên: <?= session()->get('username') ?></h6>
+            <h6 style="font-size: 0.9rem">Email: <?= session()->get('email') ?></h6>
+            <h6 style="font-size: 0.9rem">Số ghế đặt: <?= $seats ?></h6>
+            <h6 style="font-size: 0.9rem">Ngày đặt vé: <?= date("d/m/Y H:i:s", time()) ?></h6>
+            <h6 style="font-size: 0.9rem">Tổng số tiền: <?= number_format($price) . ' VND' ?></h6>
+            <a class="change-btn" href="/default/booking/<?= $showing['id'] ?>">Thay đổi</a>
+            <button type="submit"class="change-btn float-end" style="background: #e71a0f ">Đặt vé</button>
+        </form>
     </div>
 </div>
 <?php session()->markAsTempdata([
