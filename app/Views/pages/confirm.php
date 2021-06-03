@@ -17,3 +17,8 @@
         <a class="change-btn float-end" style="background: #e71a0f " href="#">Đặt vé</a>
     </div>
 </div>
+<?php session()->markAsTempdata([
+    'seats'  => 60,
+    'price' => 60,
+    'showId' => 60
+]);
