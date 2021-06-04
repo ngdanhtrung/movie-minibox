@@ -26,7 +26,7 @@ class PaymentModel extends Model
             ->join('movie', 'movie.id = showing.movieId')
             ->join('cinema', 'cinema.id = showing.cinemaId')
             ->where(['payment.userId' => $id])
-            ->orderBy('payment.id', 'desc')
+            ->orderBy('showing.showtime', 'asc')
             ->findAll(10, 0);
     }
 }
