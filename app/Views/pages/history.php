@@ -50,6 +50,7 @@
               </div>
             <?php endif; ?>
           <?php endforeach; ?>
+          <?php array_reverse($history) ?>
           <?php foreach ($history as $ticket) : ?>
             <?php if (strtotime($ticket["showtime"]) < time()): ?>
               <div class="col h-100 mb-2">
