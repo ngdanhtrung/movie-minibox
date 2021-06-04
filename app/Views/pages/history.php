@@ -18,28 +18,29 @@
       <div class="container">
         <div class="array-test">
           <?php
-            echo '<pre>';
+          /*echo '<pre>';
             print_r($history);
-            echo '</pre>';
+            echo '</pre>';*/
           ?>
         </div>
-        <div class="row row-cols-resize g-2">
+        <div class="row row-cols-1">
           <?php foreach ($history as $ticket) : ?>
-            <div class="col">
-              <div class="row border bg-light">
-                  <div class="col-6"><?= $ticket["cinemaName"] ?></div>
-                  <div class="col-6"><?= $ticket["cinemaAddress"] ?></div>
-                  <div class="col-6"><?= date("d-M-Y",strtotime($ticket["date"])) ?></div>
-                  <div class="col-6"><?= date("H:i:s",strtotime($ticket["date"])) ?></div>
-                  <div class="col-12"><hr></div>
-                  <div class="col-12"><?= $ticket["movieName"] ?></div>
-                  <div class="col-6"><?= date("d/M/Y",strtotime($ticket["showtime"])) ?></div>
-                  <div class="col-6"><?= date("H:i",strtotime($ticket["showtime"])) ?></div>
-                  <div class="col-6">Rạp: <?= $ticket["room"] ?></div>
-                  <div class="col-6">Ghế: <?= str_replace("\"","",$ticket["seat"]) ?></div>
-                  <div class="col-12"><hr></div>
-                  <div class="col-6">Total</div>
-                  <div class="col-6">VND <?= number_format($ticket["amount"]) ?></div>
+            <div class="col h-100 mb-2">
+              <div class="row bg-transparent h-100">
+                <div class="col my-1 p-0">
+                  <h6 class="fw-bold m-0 my-1" style="font-size: 0.8rem; color: #666">Mã đặt vé: <?= $ticket["id"] ?></h6>
+                </div>
+                <div class="row m-auto p-0 py-2 border-bottom border-dark">
+                  <div class="col-sm-3 p-0"><img style="width: 85%;" src="<?= $ticket["image"] ?>" alt=""></div>
+                  <div class="col p-0 m-0" style="font-size: 0.8rem">
+                    <p class="m-0"><?= $ticket["movieName"] ?></p>
+                    <p class="m-0"><?= date("d-M-Y", strtotime($ticket["date"])) ?></p>
+                    <p class="m-0"><?= date('H:i A', strtotime($ticket["showtime"])) ?></p>
+                    <p class="m-0"><?= $ticket["cinemaName"] ?></p>
+                    <p class="m-0">Cinema <?= $ticket["room"] ?> (<?= str_replace("\"", "", $ticket["seat"]) ?>)</p>
+                    <p class="m-0 fw-bold"><?= number_format($ticket["amount"]) ?> ₫</p>
+                  </div>
+                </div>
               </div>
             </div>
           <?php endforeach; ?>

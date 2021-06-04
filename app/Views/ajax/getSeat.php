@@ -1,4 +1,6 @@
 <?php
+if (!session()->has('valid')) die();
+session()->remove('valid');
 $selectedSeats = "";
 $sum = 0;
 $seatURI = "";
@@ -36,3 +38,8 @@ if ($seats) {
         <?php endif; ?>
     </div>
 </div>
+<?php session()->markAsTempdata([
+    'seats'  => 60,
+    'price' => 60,
+    'showId' => 60
+]);

@@ -97,7 +97,7 @@ class Movie extends BaseController
             $data['seats'] = session()->get('seats');
             $data['price'] = session()->get('price');
 
-            // if (!session()->has('isLoggedIn')) return redirect()->to('/account/login');
+            if (!session()->has('isLoggedIn')) return redirect()->to('/');
             if (!session()->has('seats') || !session()->has('price') || !session()->has('showId')) return redirect()->to('/');
             $showingModel = new ShowingModel();
             $data['showing'] = $showingModel->select('showing.id, cinemaName, movieName, showtime, room')
@@ -113,8 +113,8 @@ class Movie extends BaseController
     public function confirmSuccess()
     {
         helper(['form']);
-        $data = [];
-        if (!session()->has('isLoggedIn')) return redirect()->to('/account/login'); {
+        if (!session()->has('isLoggedIn')) return redirect()->to('/account/login');
+        if (!session()->has('seats') || !session()->has('price') || !session()->has('showId')) return redirect()->to('/'); {
             if ($this->request->getMethod() == 'post') {
                 $paymentModel = new PaymentModel();
 
@@ -126,12 +126,15 @@ class Movie extends BaseController
                     'seat' => session()->get('seats'),
                 ];
                 $paymentModel->save($newData);
-                $session = session();
-                $session->setFlashdata('success', 'Đặt vé thành công');
+                $sessionData = [
+                    'showId',
+                    'price',
+                    'seats'
+                ];
+                session()->remove($sessionData);
+                session()->setFlashdata('success', 'Đặt vé thành công');
                 return redirect()->to('/account/history');
             }
-            echo view('templates/header', $data);
-            echo view('templates/footer');
         }
     }
 }

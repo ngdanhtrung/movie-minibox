@@ -1,5 +1,6 @@
 <div class="container">
     <?php
+    session()->set('valid', 1);
     $seats = [];
     $letterArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     $bookedSeatString = "";
@@ -31,7 +32,8 @@
         <div class="row row-cols-8 g-2">
             <?php foreach ($seats as $seat) : ?>
                 <div class="col">
-                    <?php if (str_contains($bookedSeatString, $seat )): //because I changed input data so we don't need double quote?> 
+                    <?php if (str_contains($bookedSeatString, $seat)) : //because I changed input data so we don't need double quote
+                    ?>
                         <button class="btn btn-danger" style="width: 48px"><?= $seat ?></button>
                     <?php else : ?>
                         <button class="btn btn-light" style="width: 48px" onclick="addSeat('<?= $seat ?>')"><?= $seat ?></button>
@@ -53,6 +55,16 @@
     $(document).ready(function() {
         $("#result").load(`${url}/<?= $showing["id"] ?>/`);
         $(".btn").click(function() {
+            $.ajax({
+                type: "POST",
+                url: '<?= site_url('/handleAjax') ?>',
+                data: {
+                    action: 'call_this'
+                },
+                success: function(html) {
+                    console.log(html);
+                }
+            });
             if (!seatMax) {
                 if (this.className == "btn btn-light") {
                     $(this).removeClass("btn-light");

@@ -15,7 +15,7 @@
             <h6 style="font-size: 0.9rem">Ngày đặt vé: <?= date("d/m/Y H:i:s", time()) ?></h6>
             <h6 style="font-size: 0.9rem">Tổng số tiền: <?= number_format($price) . ' VND' ?></h6>
             <a class="change-btn" href="/default/booking/<?= $showing['id'] ?>">Thay đổi</a>
-            <button type="submit"class="change-btn float-end" style="background: #e71a0f ">Đặt vé</button>
+            <button type="submit" class="change-btn float-end" style="background: #e71a0f ">Đặt vé</button>
         </form>
     </div>
 </div>

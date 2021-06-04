@@ -8,7 +8,7 @@ class PaymentModel extends Model
 {
     protected $table = 'payment';
 
-    protected $allowedFields = ['userId', 'showingId', 'ammount', 'date', 'seat'];
+    protected $allowedFields = ['userId', 'showingId', 'amount', 'date', 'seat'];
 
     public function getBookedSeats($id = NULL)
     {
@@ -21,11 +21,12 @@ class PaymentModel extends Model
     public function getPaymentByUser($id = NULL)
     {
         return $this->asArray()
-            ->select('cinemaName, cinemaAddress, date, movieName, showtime, room, seat, amount')
+            ->select('payment.id, cinemaName, cinemaAddress, date, movieName, showtime, room, seat, amount, image')
             ->join('showing', 'showing.id = payment.showingId')
-            ->join('movie','movie.id = showing.movieId')
-            ->join('cinema','cinema.id = showing.cinemaId')
+            ->join('movie', 'movie.id = showing.movieId')
+            ->join('cinema', 'cinema.id = showing.cinemaId')
             ->where(['payment.userId' => $id])
-            ->findAll();
+            ->orderBy('payment.id', 'desc')
+            ->findAll(10, 0);
     }
 }

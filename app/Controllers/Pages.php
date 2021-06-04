@@ -30,4 +30,10 @@ class Pages extends BaseController
         echo view('pages/' . $page);
         echo view('templates/footer');
     }
+    function handleAjax()
+    {
+        if ($_POST['action'] == 'call_this') {
+            session()->set('valid', 1);
+        }
+    }
 }

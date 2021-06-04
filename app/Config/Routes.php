@@ -38,11 +38,12 @@ $routes->get('/', 'Pages::index');
 $routes->match(['get', 'post'], '/account/(:any)', 'Account::$1');
 $routes->get('/default/getSeat/(:any)', 'Movie::getSeats/$1');
 $routes->get('/default/booking/confirm/', 'Movie::confirm');
-$routes->match(['get', 'post'],'/default/booking/confirm/success', 'Movie::confirmSuccess');
+$routes->match(['get', 'post'], '/default/booking/confirm/success', 'Movie::confirmSuccess');
 $routes->get('/movie/create', 'Movie::create');
 $routes->get('/default/getDate/(:any)', 'Movie::getDate/$1');
 $routes->get('/default/booking/(:any)', 'Movie::booking/$1');
 $routes->get('/default/(:any)', 'Movie::view/$1');
+$routes->post('/handleAjax', 'Pages::handleAjax');
 $routes->get('(:any)', 'Pages::showme/$1');
 
 /*
