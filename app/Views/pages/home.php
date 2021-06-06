@@ -62,7 +62,7 @@
           <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"></a>
         </div>
         <?php
-        echo date("Y-m-d H:i:s");
+        //echo date("Y-m-d H:i:s");
         ?>
       </div>
   </section>

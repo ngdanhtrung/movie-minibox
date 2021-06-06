@@ -21,11 +21,12 @@
           /*echo '<pre>';
             print_r($history);
             echo '</pre>';*/
+          date_default_timezone_set('Asia/Ho_Chi_Minh');
           ?>
         </div>
         <div class="row row-cols-1">
           <?php foreach ($history as $ticket) : ?>
-            <?php if (strtotime($ticket["showtime"]) >= time()): ?>
+            <?php if (strtotime($ticket["showtime"]) >= time()) : ?>
               <div class="col h-100 mb-2">
                 <div class="row bg-transparent h-100">
                   <div class="col my-1 p-0">
@@ -36,7 +37,7 @@
                     <div class="col p-0 m-0" style="font-size: 0.8rem">
                       <p class="m-0 fw-bold"><?= $ticket["movieName"] ?></p>
                       <p class="m-0"><?= date("d-M-Y", strtotime($ticket["showtime"])) ?></p>
-                      <p class="m-0"><?= date('H:i A', strtotime($ticket["showtime"])) ?></p>                    
+                      <p class="m-0"><?= date('H:i A', strtotime($ticket["showtime"])) ?></p>
                       <p class="m-0">Cinema <?= $ticket["room"] ?> (<?= str_replace("\"", "", $ticket["seat"]) ?>)</p>
                       <p class="m-0 fw-bold"><?= number_format($ticket["amount"]) ?> ₫</p>
                       <hr>
@@ -51,7 +52,7 @@
             <?php endif; ?>
           <?php endforeach; ?>
           <?php foreach ($history as $ticket) : ?>
-            <?php if (strtotime($ticket["showtime"]) < time()): ?>
+            <?php if (strtotime($ticket["showtime"]) < time()) : ?>
               <div class="col h-100 mb-2">
                 <div class="row bg-transparent h-100">
                   <div class="col my-1 p-0">
@@ -62,7 +63,7 @@
                     <div class="col p-0 m-0" style="font-size: 0.8rem">
                       <p class="m-0 fw-bold"><?= $ticket["movieName"] ?></p>
                       <p class="m-0"><?= date("d-M-Y", strtotime($ticket["showtime"])) ?></p>
-                      <p class="m-0"><?= date('H:i A', strtotime($ticket["showtime"])) ?></p>                    
+                      <p class="m-0"><?= date('H:i A', strtotime($ticket["showtime"])) ?></p>
                       <p class="m-0">Cinema <?= $ticket["room"] ?> (<?= str_replace("\"", "", $ticket["seat"]) ?>)</p>
                       <p class="m-0 fw-bold"><?= number_format($ticket["amount"]) ?> ₫</p>
                       <hr>

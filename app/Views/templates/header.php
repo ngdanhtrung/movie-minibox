@@ -18,7 +18,7 @@
     <div id="header">
       <div class="header-text">
         <?php if (session()->get('isLoggedIn')) : ?>
-          <a href="">Vé của tôi</a>
+          <a href="/account/history">Vé của tôi</a>
           <a href="/account/user">Xin chào, <?= session()->get('username') ?></a>
           <a href="/account/logout">Đăng xuất</a>
         <?php else : ?>
@@ -39,7 +39,7 @@
             </button>
             <button class="dropbtn">Rạp
               <div class="dropdown-content">
-                <a href="#">tất cả rạp</a>
+                <a href="/sites/cinemas">tất cả rạp</a>
               </div>
             </button>
             <button class="dropbtn">Thành viên
