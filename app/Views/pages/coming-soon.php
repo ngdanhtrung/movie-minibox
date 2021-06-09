@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<div class="container mt-5">
+<div class="container my-5">
     <section class="test">
         <div class="container" style="width: 1100px">
             <div class="category-title">

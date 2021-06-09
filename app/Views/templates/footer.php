@@ -1,6 +1,51 @@
     </div>
     <div id="footer">
-        <div class="footer-container">
+        <div class="footer-brand-container">
+            <div class="footer-container">
+                <a href="#"></a>
+            </div>
+        </div>
+        <div class="footer-border-container">
+            <div class="footer-container">
+                <div class="footer-text-container">
+                    <div class="row row-cols-4 my-3">
+                        <div class="col">
+                            <h3>AmeCine Việt Nam</h3>
+                            <a href="">Giới thiệu</a>
+                            <a href="">Tiện ích online</a>
+                            <a href="">Quà tặng</a>
+                            <a href="">Tuyển dụng</a>
+                            <a href="">Liên hệ quảng cáo</a>
+                        </div>
+                        <div class="col">
+                            <h3>Điều khoản sử dụng</h3>
+                            <a href="">Điều Khoản Chung</a>
+                            <a href="">Điều Khoản Giao Dịch</a>
+                            <a href="">Chính Sách Thanh Toán</a>
+                            <a href="">Chính Sách Bảo Mật</a>
+                            <a href="">Câu Hỏi Thường Gặp</a>
+                        </div>
+                        <div class="col">
+                            <h3>Kết nối với chúng tôi</h3>
+                            <div class="container d-flex flex-row p-0 connect-with-us">
+                                <a href="" class="fb"></a>
+                                <a href="" class="yt"></a>
+                                <a href="" class="insta"></a>
+                                <a href="" class="zalo"></a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h3>Chăm sóc khách hàng</h3>
+                            <p>Hotline: 1900 6969</p>
+                            <p>Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày bao gồm cả Lễ Tết)</p>
+                            <p>Email hỗ trợ: support@amecine.vn</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-container my-3">
             <div class="footer-text-container">
                 <h3>CÔNG TY MINI BOX VIỆT NAM</h3>
                 <p>Địa Chỉ: Số 280 An Dương Vương, Phường 4, Quận 5, Thành phố Hồ Chí Minh</p>

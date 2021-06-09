@@ -1,12 +1,15 @@
-<?php namespace App\Validation;
+<?php
+
+namespace App\Validation;
 
 use App\Models\AccountModel;
 
 class UserRules
 {
-    public function validateUser(string $str, string $fields, array $data){
+    public function validateUser(string $str, string $fields, array $data)
+    {
         $model = new AccountModel();
-        $user = $model->where('username', $data['username'])->first();
+        $user = $model->where('email', $data['email'])->first();
 
         if (!$user)
             return false;

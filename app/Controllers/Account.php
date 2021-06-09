@@ -19,16 +19,17 @@ class Account extends BaseController
 
         if ($this->request->getMethod() == 'post') {
             $rules = [
-                'username' => 'required',
-                'password' => 'required|validateUser[username, password]',
+                'email' => 'required|valid_email',
+                'password' => 'required|validateUser[email, password]',
             ];
 
             $errors = [
-                'username' => [
-                    'required' => 'Vui lòng nhập Tên đăng nhập.'
+                'email' => [
+                    'required' => 'Vui lòng nhập Email.',
+                    'valid_email' => 'Email phải hợp lệ.'
                 ],
                 'password' => [
-                    'validateUser' => 'Sai tên đăng nhập hoặc mật khẩu.',
+                    'validateUser' => 'Sai Email hoặc mật khẩu.',
                     'required' => 'Vui lòng nhập Mật khẩu.'
                 ]
             ];
@@ -39,7 +40,7 @@ class Account extends BaseController
             } else {
                 $model = new AccountModel();
 
-                $user = $model->where('username', $this->request->getVar('username'))->first();
+                $user = $model->where('email', $this->request->getVar('email'))->first();
 
                 $this->setUserSession($user);
 
