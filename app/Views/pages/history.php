@@ -1,5 +1,4 @@
 <?php
-$uri = new \CodeIgniter\HTTP\URI('http://www.example.com/some/path#first-heading');
 $page_count = 0;
 foreach ($pages as $page) {
   $page_count = $page_count + 1;
