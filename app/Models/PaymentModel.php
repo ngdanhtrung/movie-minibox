@@ -30,10 +30,11 @@ class PaymentModel extends Model
             ->orderBy('showing.showtime', 'desc')
             ->findAll(6, $offset);
     }
-    public function getPages()
+    public function getPages($id = NULL)
     {
         return $this->asArray()
-            ->select('payment.id')
+            ->select('COUNT(payment.id)')
+            ->where(['payment.userId' => $id])
             ->findAll();
     }
 }

@@ -1,9 +1,5 @@
 <?php
-$page_count = 0;
-foreach ($pages as $page) {
-  $page_count = $page_count + 1;
-}
-$page_count = ceil($page_count / 10);
+$page_count = ceil($pages[0]['COUNT(payment.id)'] / 6);
 ?>
 <div class="container my-5">
   <div class="row m-auto">

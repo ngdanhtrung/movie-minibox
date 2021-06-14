@@ -233,7 +233,7 @@ class Account extends BaseController
             return redirect()->to('/account/login');
         } else {
             $model = new PaymentModel();
-            $data['pages'] = $model->getpages();
+            $data['pages'] = $model->getpages(session()->get('id'));
             $data['current_page'] = $this->request->uri->getSegment(3);
             $data['history'] = $model->getPaymentByUser(session()->get('id'), $page);
             echo view('templates/header', $data);
