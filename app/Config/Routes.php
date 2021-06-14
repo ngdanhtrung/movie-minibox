@@ -35,6 +35,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 
 $routes->get('/', 'Pages::index');
+$routes->get('/account/history/(:any)', 'Account::history/$1');
 $routes->match(['get', 'post'], '/account/(:any)', 'Account::$1');
 $routes->get('/sites/(:any)', 'Cinema::$1');
 $routes->get('/default/getSeat/(:any)', 'Movie::getSeats/$1');

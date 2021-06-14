@@ -1,3 +1,11 @@
+<?php
+$uri = new \CodeIgniter\HTTP\URI('http://www.example.com/some/path#first-heading');
+$page_count = 0;
+foreach ($pages as $page) {
+  $page_count = $page_count + 1;
+}
+$page_count = ceil($page_count / 10);
+?>
 <div class="container my-5">
   <div class="row m-auto">
     <div class="col-sm-3">
@@ -6,16 +14,35 @@
         <ul>
           <li><a href="/account/user">Thông tin chung</a></li>
           <li><a href="/account/update">Chi tiết tài khoản</a></li>
-          <li class="active"><a href="/account/history">Lịch sử xem phim</a></li>
+          <li class="active"><a href="/account/history/1">Lịch sử xem phim</a></li>
         </ul>
       </div>
     </div>
     <div class="col-sm-8">
       <div class="dashboard">
         <h3>Lịch sử xem phim</h3>
+        <?php if (session()->get('success')) : ?>
+          <div class="alert-success" role="alert">
+            <?= session()->get('success') ?>
+          </div>
+        <?php endif; ?>
       </div>
+      <div class="page-container mb-5">
+        <?php if ($page_count > 1 && $current_page == 1) : ?>
+          <a class="float-end text-danger" style="text-decoration: none; font-size: 0.8rem" href="/account/history/<?= $current_page + 1 ?>">Tiếp theo >></a>
+        <?php elseif ($page_count > 1 && $current_page == $page_count) : ?>
+          <a class="float-end text-danger" style="text-decoration: none; font-size: 0.8rem" href="/account/history/<?= $current_page - 1 ?>">
+            << Quay lại</a>
+            <?php elseif ($page_count > 1 && $current_page > 1) : ?>
+              <a class="float-end text-danger ms-3" style="text-decoration: none; font-size: 0.8rem" href="/account/history/<?= $current_page + 1 ?>">Tiếp theo >></a>
+              <a class="float-end text-danger" style="text-decoration: none; font-size: 0.8rem" href="/account/history/<?= $current_page - 1 ?>">
+                << Quay lại</a>
+                <?php endif; ?>
+      </div>
+
       <hr>
-      <div class="container">
+
+      <div class="container mt-3">
         <div class="array-test">
           <?php
           /*echo '<pre>';
@@ -33,11 +60,11 @@
                     <h6 class="fw-bold m-0 my-1" style="font-size: 0.8rem; color: #666">Mã đặt vé: <?= $ticket["id"] ?></h6>
                   </div>
                   <div class="row m-auto p-0 py-2 border-bottom border-dark">
-                    <div class="col-sm-3 p-0"><img style="width: 85%;" src="<?= $ticket["image"] ?>" alt=""></div>
+                    <div class="col-sm-3 p-0"><img style="height: 220px;" src="<?= $ticket["image"] ?>" alt=""></div>
                     <div class="col p-0 m-0" style="font-size: 0.8rem">
                       <p class="m-0 fw-bold"><?= $ticket["movieName"] ?></p>
                       <p class="m-0"><?= date("d-M-Y", strtotime($ticket["showtime"])) ?></p>
-                      <p class="m-0"><?= date('H:i A', strtotime($ticket["showtime"])) ?></p>
+                      <p class="m-0"><?= date('H:i A', strtotime($ticket["showtime"])) ?> ~ <?= date('H:i A', strtotime($ticket["endtime"])) ?></p>
                       <p class="m-0">Cinema <?= $ticket["room"] ?> (<?= str_replace("\"", "", $ticket["seat"]) ?>)</p>
                       <p class="m-0 fw-bold"><?= number_format($ticket["amount"]) ?> ₫</p>
                       <hr>
@@ -51,7 +78,8 @@
               </div>
             <?php endif; ?>
           <?php endforeach; ?>
-          <?php array_reverse($history) ?>
+          <?php //array_reverse($history) 
+          ?>
           <?php foreach ($history as $ticket) : ?>
             <?php if (strtotime($ticket["showtime"]) < time()) : ?>
               <div class="col h-100 mb-2">
@@ -60,11 +88,11 @@
                     <h6 class="fw-bold m-0 my-1" style="font-size: 0.8rem; color: #666">Mã đặt vé: <?= $ticket["id"] ?></h6>
                   </div>
                   <div class="row m-auto p-0 py-2 border-bottom border-dark">
-                    <div class="col-sm-3 p-0"><img style="width: 85%; -webkit-filter: grayscale(100%); filter: grayscale(100%);" src="<?= $ticket["image"] ?>" alt=""></div>
+                    <div class="col-sm-3 p-0"><img style="height: 220px; -webkit-filter: grayscale(100%); filter: grayscale(100%);" src="<?= $ticket["image"] ?>" alt=""></div>
                     <div class="col p-0 m-0" style="font-size: 0.8rem">
                       <p class="m-0 fw-bold"><?= $ticket["movieName"] ?></p>
                       <p class="m-0"><?= date("d-M-Y", strtotime($ticket["showtime"])) ?></p>
-                      <p class="m-0"><?= date('H:i A', strtotime($ticket["showtime"])) ?></p>
+                      <p class="m-0"><?= date('H:i A', strtotime($ticket["showtime"])) ?> ~ <?= date('H:i A', strtotime($ticket["endtime"])) ?></p>
                       <p class="m-0">Cinema <?= $ticket["room"] ?> (<?= str_replace("\"", "", $ticket["seat"]) ?>)</p>
                       <p class="m-0 fw-bold"><?= number_format($ticket["amount"]) ?> ₫</p>
                       <hr>

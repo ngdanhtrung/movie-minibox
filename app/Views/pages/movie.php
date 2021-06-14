@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<div class="container mt-5">
+<div class="container my-5">
   <div class="container" style="width: 1100px">
     <div class="container-fluid m-0 p-0">
 
@@ -104,6 +104,6 @@
 
   function getDate(value) {
     $("#result").load(`<?= site_url('default/getDate/' . $movie['id']) . '/'  ?>${value}`);
-    //console.log(`<?= site_url('default/getDate/' . $movie['id']) . '/'  ?>${value}`);
+    console.log(`<?= site_url('default/getDate/' . $movie['id']) . '/'  ?>${value}`);
   };
 </script>

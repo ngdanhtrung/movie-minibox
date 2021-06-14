@@ -227,13 +227,15 @@ class Account extends BaseController
             echo view('templates/footer');
         }
     }
-    function history()
+    function history($page = 1)
     {
         if (!session()->has('isLoggedIn')) {
             return redirect()->to('/account/login');
         } else {
             $model = new PaymentModel();
-            $data['history'] = $model->getPaymentByUser(session()->get('id'));
+            $data['pages'] = $model->getpages();
+            $data['current_page'] = $this->request->uri->getSegment(3);
+            $data['history'] = $model->getPaymentByUser(session()->get('id'), $page);
             echo view('templates/header', $data);
             echo view('pages/history');
             echo view('templates/footer');

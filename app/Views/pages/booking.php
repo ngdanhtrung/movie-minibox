@@ -23,7 +23,7 @@
         </div>
         <div class="top-content">
             <h6 class="fw-bold fs-6"><?= $showing['movieName'] . ' | ' . $showing['cinemaName'] . ' | Cinema ' . $showing['room'] ?></h6>
-            <h6 class="fw-bold fs-6"><?= $showing['showtime'] ?></h6>
+            <h6 class="fw-bold fs-6"><?= $showing['showtime'] ?> ~ <?= $showing['endtime'] ?></h6>
         </div>
     </div>
 

@@ -6,7 +6,7 @@
         <ul>
           <li class="active"><a href="/account/user">Thông tin chung</a></li>
           <li><a href="/account/update">Chi tiết tài khoản</a></li>
-          <li><a href="/account/history">Lịch sử xem phim</a></li>
+          <li><a href="/account/history/1">Lịch sử xem phim</a></li>
         </ul>
       </div>
     </div>

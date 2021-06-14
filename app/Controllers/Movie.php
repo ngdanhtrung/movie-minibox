@@ -69,11 +69,11 @@ class Movie extends BaseController
         if (!session()->has('isLoggedIn')) return redirect()->to('/account/login'); {
             $showingModel = new ShowingModel();
             $paymentModel = new PaymentModel();
-            $data['showing'] = $showingModel->select('showing.id, showing.movieId, cinemaName, movieName, showtime, room')
+            $data['showing'] = $showingModel->select('showing.id, showing.movieId, cinemaName, movieName, showtime, endtime, room')
                 ->join('movie', 'movie.id = showing.movieId')
                 ->join('cinema', 'cinema.id = showing.cinemaId')->where('showing.id', $id)->first();
             $data['bookedSeats'] = $paymentModel->getBookedSeats($id);
-            if (date('Y-m-d H:i:s') >= $data['showing']['showtime']) return redirect()->to('/default/' . $data['showing']['movieId']);
+            if (date('Y-m-d H:i:s') >= $data['showing']['endtime']) return redirect()->to('/default/' . $data['showing']['movieId']);
             echo view('templates/header', $data);
             echo view('pages/booking');
             echo view('templates/footer');

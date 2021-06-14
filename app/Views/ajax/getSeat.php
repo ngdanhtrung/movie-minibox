@@ -1,5 +1,5 @@
 <?php
-if (!session()->has('valid')) die();
+if (!session()->has('valid')) die('access denied');
 session()->remove('valid');
 $selectedSeats = "";
 $sum = 0;
