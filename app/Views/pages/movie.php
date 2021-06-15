@@ -56,6 +56,7 @@
         </div>
       </div>
     </div>
+    <div class="description mt-5" style="font-size: 0.9rem"> <?= $movie['description'] ?></div>
   </div>
 </div>
 

@@ -22,18 +22,7 @@ $page_count = ceil($pages[0]['COUNT(payment.id)'] / 6);
           </div>
         <?php endif; ?>
       </div>
-      <div class="page-container mb-5">
-        <?php if ($page_count > 1 && $current_page == 1) : ?>
-          <a class="float-end text-danger" style="text-decoration: none; font-size: 0.8rem" href="/account/history/<?= $current_page + 1 ?>">Tiếp theo >></a>
-        <?php elseif ($page_count > 1 && $current_page == $page_count) : ?>
-          <a class="float-end text-danger" style="text-decoration: none; font-size: 0.8rem" href="/account/history/<?= $current_page - 1 ?>">
-            << Quay lại</a>
-            <?php elseif ($page_count > 1 && $current_page > 1) : ?>
-              <a class="float-end text-danger ms-3" style="text-decoration: none; font-size: 0.8rem" href="/account/history/<?= $current_page + 1 ?>">Tiếp theo >></a>
-              <a class="float-end text-danger" style="text-decoration: none; font-size: 0.8rem" href="/account/history/<?= $current_page - 1 ?>">
-                << Quay lại</a>
-                <?php endif; ?>
-      </div>
+
 
       <hr>
 
@@ -103,6 +92,18 @@ $page_count = ceil($pages[0]['COUNT(payment.id)'] / 6);
           <?php endforeach; ?>
         </div>
       </div>
+    </div>
+    <div class="col-sm-1 mt-5">
+      <?php if ($page_count > 1 && $current_page == 1) : ?>
+        <a class="text-danger" style="text-decoration: none; font-size: 0.7rem" href="/account/history/<?= $current_page + 1 ?>">Tiếp theo >></a>
+      <?php elseif ($page_count > 1 && $current_page == $page_count) : ?>
+        <a class="text-danger" style="text-decoration: none; font-size: 0.7rem" href="/account/history/<?= $current_page - 1 ?>">
+          << Quay lại</a>
+          <?php elseif ($page_count > 1 && $current_page > 1) : ?>
+            <a class="text-danger" style="text-decoration: none; font-size: 0.7rem" href="/account/history/<?= $current_page + 1 ?>">Tiếp theo >></a>
+            <a class="text-danger" style="text-decoration: none; font-size: 0.7rem" href="/account/history/<?= $current_page - 1 ?>">
+              << Quay lại</a>
+              <?php endif; ?>
     </div>
   </div>
 </div>

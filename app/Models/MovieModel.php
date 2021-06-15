@@ -8,7 +8,7 @@ class MovieModel extends Model
 {
     protected $table = 'movie';
 
-    protected $allowedFields = ['movieName', 'director', 'actors', 'genre', 'duration', 'premiereDate', 'language', 'image', 'bigImage'];
+    protected $allowedFields = ['movieName', 'director', 'actors', 'genre', 'duration', 'premiereDate', 'language', 'description', 'image', 'bigImage'];
 
     public function getPosts($movie = null)
     {
