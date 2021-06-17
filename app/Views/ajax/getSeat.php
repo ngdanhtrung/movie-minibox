@@ -1,6 +1,6 @@
 <?php
-if (!session()->has('valid')) die('access denied');
-session()->remove('valid');
+if (!session()->has('valid')) return;
+
 $selectedSeats = "";
 $sum = 0;
 $seatURI = "";
@@ -43,3 +43,4 @@ if ($seats) {
     'price' => 60,
     'showId' => 60
 ]);
+session()->remove('valid');
