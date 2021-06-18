@@ -1,5 +1,5 @@
 <?php
-if (!session()->has('valid')) return;
+
 
 $selectedSeats = "";
 $sum = 0;
@@ -32,9 +32,11 @@ if ($seats) {
         <strong> Tổng số tiền: </strong>
         <?php if ($seats) : ?>
             <?php echo number_format($sum) . ' VND'; ?>
-            <a href="<?= base_url('/default/booking/confirm/') ?>">
-                <p id="btn-confirm" class="btn btn-danger float-end">NEXT</p>
-            </a>
+            <?php if (session()->has('valid')) : ?>
+                <a href="<?= base_url('/default/booking/confirm/') ?>">
+                    <p id="btn-confirm" class="btn btn-danger float-end">NEXT</p>
+                </a>
+            <?php endif; ?>
         <?php endif; ?>
     </div>
 </div>
